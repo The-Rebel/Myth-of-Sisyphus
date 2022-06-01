@@ -4,16 +4,19 @@ import Image from "next/image"
 
 const LandingContainer = () => {
     return (
-        <div>
-            <S.Background />
-            <S.CenterContainer>
-                <Image src={Background} alt="background image"/>
-            </S.CenterContainer>
-            <S.LandingContainer>
-                {/* <h1>sndklfslbfgsdklbgskd    gnkslngklsngklsdnkljks</h1> */}
-            </S.LandingContainer>
+        <S.LandingContainer>
+            <S.Background>
+                <S.ItemContainer>
+                    <S.BigSlogan>The Rebel</S.BigSlogan>
+                    <S.SmallSlogan>Albert Camus - French philosopher</S.SmallSlogan>
 
-        </div>
+                    <div><button>ksndfln</button></div>
+                </S.ItemContainer>
+            </S.Background>
+            <S.ImgContainer>
+                <Image src={Background} alt="background image"/>
+            </S.ImgContainer>
+        </S.LandingContainer>
     )
 }
 
