@@ -43,4 +43,34 @@ export const SmallSlogan = styled.div`
 
     width: 100%;
     margin: 0 auto;
+    border-top: 24px;
+`
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: center;
+`
+
+export const Button = styled.button`
+    border: none;
+    color: white;
+    background-color: #C65DD8;
+    margin-top: 122px;
+    width: 960px;
+    height: 100px;
+    font-size: 30px;
+    cursor: pointer;
+`
+
+export const LoginButton = styled.button`
+    border: none;
+    position: fixed;
+    top: 40px;
+    right: 60px;
+    color: white;
+    background-color: #C65DD8;
+    width: 200px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
 `
