@@ -12,3 +12,14 @@ export const studyRoomState = atom({
     key: "studyRoomState",
     default: {} as studyRoomType
 })
+
+interface essayType {
+    nickname: string, 
+    title: string,
+    content: string
+}
+
+export const essayState = atom({
+    key: "essayState",
+    default: {} as essayType
+})

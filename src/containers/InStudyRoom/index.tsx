@@ -5,6 +5,7 @@ import { studyRoomState } from "../../recoil"
 
 import { EssayList } from "../../constant"
 import Essay from "../../components/Essay"
+import { useEffect } from "react"
 
 export interface EssayListType {
     user_id?: number,
@@ -15,6 +16,10 @@ export interface EssayListType {
 
 const InStudyRoomContainer = () => {
     const studyRoom = useRecoilValue(studyRoomState)
+
+    // useEffect(() => {
+    //     // 스터디룸 목록 요청 받기.
+    // })
 
     return (
         <S.StudyRoomContainer>
