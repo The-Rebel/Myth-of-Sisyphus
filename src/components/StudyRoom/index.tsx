@@ -11,9 +11,22 @@ interface StudyRoomPropsType {
 
 const  StudyRoom = ({thumbnail, study_room_name, description}: StudyRoomPropsType) => {
     const [isHover, setIsHover] = useState<boolean>(false)
+    const [time, setTime] = useState<NodeJS.Timeout>()
+
+    const onMouseHover = () => {
+        const time = setTimeout(() => {
+            setIsHover(true)
+        }, 300)
+        setTime(time)
+    }
+
+    const onMouseNotHover = () => {
+        clearTimeout(time)
+        setIsHover(false)
+    }
 
     return (
-        <S.RoomContainer onMouseEnter={() => setIsHover(true)} onMouseLeave={() => {setIsHover(false)}}>
+        <S.RoomContainer isHover={isHover} onMouseEnter={onMouseHover} onMouseLeave={onMouseNotHover}>
             { isHover ?  
             <S.HoverRoomContainer>
                 <S.Title>{study_room_name}</S.Title>

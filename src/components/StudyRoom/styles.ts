@@ -1,19 +1,19 @@
 import styled from "@emotion/styled";
 
-export const RoomContainer = styled.div`
+export const RoomContainer = styled.div<{isHover: boolean}>`
     width: 400px;
     height: 230px;
     flex-shrink: 0;
-    transition: width .4s, height .2s;
+    transition: width .4s, height .4s;
 
-    &:hover {
+    ${props => props.isHover && `
         position: relative;
         width: 500px;
         height: 290px;
         display:flex;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.7);
-    }
+    `} 
 `
 
 export const HoverRoomContainer = styled.div`
@@ -45,5 +45,6 @@ export const Description = styled.div`
 export const PlayButton = styled.div`
     position: absolute;
     bottom: 24px;
-    right: 24px
+    right: 24px;
+    cursor:pointer;
 `
