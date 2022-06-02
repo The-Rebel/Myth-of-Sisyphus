@@ -1,19 +1,34 @@
 import styled from "@emotion/styled";
+import {css} from "@emotion/react"
 
-export const RoomContainer = styled.div<{isHover: boolean}>`
+export const RoomContainer = styled.div`
     width: 400px;
     height: 230px;
     flex-shrink: 0;
     transition: width .4s, height .4s;
+    background-color: black;
 
-    ${props => props.isHover && `
+    &:hover {
         position: relative;
         width: 500px;
         height: 290px;
         display:flex;
         align-items: center;
         background-color: rgba(0, 0, 0, 0.7);
-    `} 
+        z-index: 2;
+
+        & .isHover {
+            display: inline
+        }
+
+        & .thumbnail {
+            z-index: 1;
+        }
+    }
+
+    & .isHover {
+        display: none;
+    }
 `
 
 export const HoverRoomContainer = styled.div`

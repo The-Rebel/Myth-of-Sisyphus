@@ -17,6 +17,7 @@ export const RoomsContainer = styled.div`
     column-gap: 10px;
     width: 100%;
     overflow-x: scroll;
+    /* overflow-y: visible; */
 
     &::-webkit-scrollbar {
     display: none;
