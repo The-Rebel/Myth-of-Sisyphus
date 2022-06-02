@@ -1,12 +1,10 @@
 import styled from "@emotion/styled";
-import {css} from "@emotion/react"
 
 export const RoomContainer = styled.div`
     width: 400px;
     height: 230px;
     flex-shrink: 0;
-    transition: width .4s, height .4s;
-    background-color: black;
+    transition: width .5s, height .5s;
 
     &:hover {
         position: relative;
@@ -14,26 +12,31 @@ export const RoomContainer = styled.div`
         height: 290px;
         display:flex;
         align-items: center;
-        background-color: rgba(0, 0, 0, 0.7);
-        z-index: 2;
-
-        & .isHover {
-            display: inline
+        transition-delay: .4s;
+        
+        & .items {
+            background-color: rgba(0, 0, 0, 0.8);
+            opacity: 1;
+            visibility: visible;
+            z-index: 2;
+            transition-delay: .4s;
         }
 
         & .thumbnail {
+            width: 500px;
+            height: 290px;
             z-index: 1;
         }
-    }
-
-    & .isHover {
-        display: none;
     }
 `
 
 export const HoverRoomContainer = styled.div`
     width: 500px;
     height: 290px;
+    opacity: 0;
+    visibility: hidden;
+    /* transition: visibility 0s, opacity 1.3s linear; */
+    position: absolute;
 `
 
 export const Title = styled.div`
