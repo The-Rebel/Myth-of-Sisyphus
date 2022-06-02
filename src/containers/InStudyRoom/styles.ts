@@ -35,17 +35,21 @@ export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 23px;
 `
 
 export const TitleAndNickname = styled.div`
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     width: 1720px;
     height: 100px;
 `
 
 export const Description = styled.div`
     font-size: 23px;
+    width: 1720px;
 `
 export const Title = styled.div`
     font-size: 45px;
@@ -55,4 +59,13 @@ export const Title = styled.div`
 export const Nickname = styled.div`
     font-size: 25px;
     font-weight: bold;
+    display: flex;
+    justify-content: row;
+`
+
+export const Introduce = styled.div`
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: bottom;
+
 `

@@ -39,8 +39,11 @@ const InStudyRoomContainer = () => {
             </S.ContentsContainer>
             <S.InfoContainer>
                 <S.TitleAndNickname>
-                    <div>ddd</div>
-                    <div>ddd</div>
+                    <S.Title>{studyRoom.study_room_name}</S.Title>
+                    <S.Nickname>
+                        {studyRoom.nickname}
+                        <S.Introduce>님의 스터디룸</S.Introduce>
+                    </S.Nickname>
                 </S.TitleAndNickname>
                 <S.Description>{studyRoom.description}</S.Description>
             </S.InfoContainer>
