@@ -4,7 +4,11 @@ import * as S from "./styles"
 const Essay = ({nickname, title, content}:EssayListType) => {
     return (
         <S.Essay>
-            <div>{title}</div>
+            <S.InfoContainer>
+                <S.Title>{title}</S.Title>
+                <S.Content>{content}</S.Content>
+                <S.Nickname>{nickname}</S.Nickname>
+            </S.InfoContainer>
         </S.Essay>
     )
 }

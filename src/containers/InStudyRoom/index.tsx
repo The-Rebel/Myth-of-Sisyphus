@@ -37,6 +37,13 @@ const InStudyRoomContainer = () => {
                     )) }
                 </S.EssayContainer>
             </S.ContentsContainer>
+            <S.InfoContainer>
+                <S.TitleAndNickname>
+                    <div>ddd</div>
+                    <div>ddd</div>
+                </S.TitleAndNickname>
+                <S.Description>{studyRoom.description}</S.Description>
+            </S.InfoContainer>
         </S.StudyRoomContainer>
     )
 }
