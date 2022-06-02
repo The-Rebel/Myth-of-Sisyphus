@@ -44,12 +44,14 @@ export const TitleAndNickname = styled.div`
     flex-direction: row;
     justify-content: space-between;
     width: 1720px;
-    height: 100px;
+    height: 58px;
+    align-items: flex-end;
 `
 
 export const Description = styled.div`
     font-size: 23px;
     width: 1720px;
+    margin-top: 18px;
 `
 export const Title = styled.div`
     font-size: 45px;
@@ -67,5 +69,6 @@ export const Introduce = styled.div`
     font-size: 20px;
     font-weight: bold;
     vertical-align: bottom;
+    align-self: flex-end;
 
 `
