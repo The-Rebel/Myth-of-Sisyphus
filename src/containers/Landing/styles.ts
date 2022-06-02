@@ -1,10 +1,10 @@
 import styled from "@emotion/styled";
 
-export const Background = styled.div`
+export const Background = styled.div<{opacity:string}>`
     position: absolute;
     top: 0px;
     left: 0px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color:rgba(0, 0, 0, ${props => props.opacity});
     width: 100vw;
     height: 100vh;
     z-index: 1;
@@ -21,12 +21,11 @@ export const ImgContainer = styled.div`
 `
 
 export const ItemContainer = styled.div`
-    position: fixed;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 `;
 
 export const BigSlogan = styled.div`
@@ -40,7 +39,6 @@ export const SmallSlogan = styled.div`
     color: white;
     font-size: 45px;
     text-align: center;
-
     width: 100%;
     margin: 0 auto;
     border-top: 24px;
@@ -51,7 +49,7 @@ export const ButtonContainer = styled.div`
     justify-content: center;
 `
 
-export const Button = styled.button`
+export const BigButton = styled.button`
     border: none;
     color: white;
     background-color: #C65DD8;
@@ -70,6 +68,28 @@ export const LoginButton = styled.button`
     color: white;
     background-color: #C65DD8;
     width: 200px;
+    height: 60px;
+    font-size: 20px;
+    cursor: pointer;
+`
+export const Input = styled.input<{top: string}>`
+    width: 763px;
+    height: 80px;
+    font-size: 30px;
+    color: black;
+    margin-top: ${props => props.top};
+
+    ::placeholder {
+        font-size: 23px;
+    }
+`
+
+export const SmallButton = styled.button`
+    border: none;
+    color: white;
+    background-color: #C65DD8;
+    margin-top: 70px;
+    width: 319px;
     height: 60px;
     font-size: 20px;
     cursor: pointer;
