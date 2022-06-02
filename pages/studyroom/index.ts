@@ -1,0 +1,1 @@
+export { InStudyRoomContainer as default } from "../../src/containers"
