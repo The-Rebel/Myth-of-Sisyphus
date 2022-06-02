@@ -10,6 +10,11 @@ const SignupContainer = () => {
         router.push("signin")
     }
 
+    const onSignin = () => {
+        // 로그인 요청 로직. -> 즉 회원가입시 자동 로그인 시키기.
+        router.push("/main")
+    }
+
     return (
         <S.LandingContainer>
         <S.Background opacity="0.7">
@@ -18,7 +23,7 @@ const SignupContainer = () => {
                 <S.Input placeholder="이메일을 추가해주세요" top="40px"/>
                 <S.Input placeholder="비밀번호를 추가해주세요" top="18px"/>
                 <S.Input placeholder="닉네임을 정해주세요" top="18px"/>
-                <S.SmallButton>시작하기</S.SmallButton>
+                <S.SmallButton onClick={onSignin}>시작하기</S.SmallButton>
             </S.ItemContainer>
             <S.LoginButton onClick={onMoveSignin}>로그인</S.LoginButton>
         </S.Background>

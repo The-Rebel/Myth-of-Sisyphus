@@ -11,6 +11,10 @@ const SinginContainer = () => {
         router.push("signup")
     }
 
+    const onLogin = () => {
+        router.push("/main")
+    }
+
     return (
         <S.LandingContainer>
         <S.Background opacity="0.7">
@@ -18,7 +22,7 @@ const SinginContainer = () => {
                 <S.SmallSlogan>로그인</S.SmallSlogan>
                 <S.Input top="46px" placeholder="이메일을 입력해주세요"/>
                 <S.Input top="35px" placeholder="비밀번호를 입력해주세요"/>
-                <S.SmallButton>로그인</S.SmallButton>
+                <S.SmallButton onClick={onLogin}>로그인</S.SmallButton>
                 <S.IfFirstContainer>
                     <div>The rebel이 처음이신가요?</div>
                     <S.IfFirst onClick={onMoveSignup}>회원가입하기</S.IfFirst>
