@@ -16,11 +16,6 @@ export interface EssayListType {
 const InStudyRoomContainer = () => {
     const studyRoom = useRecoilValue(studyRoomState)
 
-    // useEffect(() => {
-    //     console.log(studyRoom);
-    //     console.log(studyRoom.video_url);
-    // })
-
     return (
         <S.StudyRoomContainer>
             <S.ContentsContainer>
