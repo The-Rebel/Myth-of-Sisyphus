@@ -94,3 +94,20 @@ export const SmallButton = styled.button`
     font-size: 20px;
     cursor: pointer;
 `
+
+export const IfFirstContainer = styled.div`
+    margin-top: 55px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    width: 400px;
+`
+
+export const IfFirst = styled.a`
+    color: #C65DD8;
+    cursor: pointer;
+`
