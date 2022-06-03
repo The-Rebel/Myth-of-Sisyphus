@@ -2,9 +2,11 @@ import { EssayListType } from "../../containers/InStudyRoom"
 import * as S from "./styles"
 import { useSetRecoilState } from "recoil"
 import { essayState } from "../../recoil"
+import { useRouter } from "next/router"
 
 const Essay = ({nickname, title, content}:EssayListType) => {
     const setEssayState = useSetRecoilState(essayState)
+    const router = useRouter()
 
     const onEssay = () => {
         const data = {
@@ -14,7 +16,7 @@ const Essay = ({nickname, title, content}:EssayListType) => {
         }
         setEssayState(data)
 
-        
+        router.push("studyroom/essay")
     }
 
     return (
