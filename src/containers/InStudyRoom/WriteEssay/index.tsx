@@ -11,7 +11,7 @@ const WriteEssayContainer = () => {
     return (
         <S.WriteEssayContainer>
             <S.Title placeholder="제목을 입력하세요"></S.Title>
-            <RichTextEditor value={text} onChange={setText}
+            {/* <RichTextEditor value={text} onChange={setText}
             controls={[
                 ['bold', 'italic', 'underline', 'strike'],
                 ['h1', 'h2', 'h3', 'h4'],
@@ -19,11 +19,11 @@ const WriteEssayContainer = () => {
                 ['blockquote', 'link'],
                 ['alignLeft', 'alignCenter', 'alignRight']
             ]}
-            className="textEditor"/>
-            <div>
+            className="textEditor"/> */}
+            <S.ButtonContainer>
                 <ActiveButton>임시저장</ActiveButton>
                 <ActiveButton>에세이 등록</ActiveButton>
-            </div>
+            </S.ButtonContainer>
         </S.WriteEssayContainer>
     )
 }
