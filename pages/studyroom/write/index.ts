@@ -1,0 +1,1 @@
+export { WriteEssayContainer as default } from "../../../src/containers"

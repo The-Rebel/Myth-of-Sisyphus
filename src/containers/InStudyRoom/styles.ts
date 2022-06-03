@@ -31,6 +31,17 @@ export const EssayContainer = styled.div`
     }
 `
 
+export const CreateButtonContainer = styled.div`
+    /* position: relative;
+    z-index: 1; */
+`
+
+export const CreateButton = styled.button`
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+`
+
 export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
