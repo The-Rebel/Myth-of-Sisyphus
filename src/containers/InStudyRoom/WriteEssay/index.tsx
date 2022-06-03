@@ -1,15 +1,16 @@
 import * as S from "./styles"
 import { RichTextEditor } from '@mantine/rte';
 import { useEffect, useState } from "react";
+import ActiveButton from "../../../components/ActiveButton";
 
-const initialValue ='<h1 class="ql-align-center">제목</h1><p>내용</p>'
+const initialValue =''
 
 const WriteEssayContainer = () => {
     const [text, setText] = useState<string>(initialValue)
-
+    
     return (
         <S.WriteEssayContainer>
-            <input placeholder="제목을 입력하세요"></input>
+            <S.Title placeholder="제목을 입력하세요"></S.Title>
             <RichTextEditor value={text} onChange={setText}
             controls={[
                 ['bold', 'italic', 'underline', 'strike'],
@@ -17,7 +18,12 @@ const WriteEssayContainer = () => {
                 ['unorderedList', 'orderedList'],
                 ['blockquote', 'link'],
                 ['alignLeft', 'alignCenter', 'alignRight']
-            ]}/>
+            ]}
+            className="textEditor"/>
+            <div>
+                <ActiveButton>임시저장</ActiveButton>
+                <ActiveButton>에세이 등록</ActiveButton>
+            </div>
         </S.WriteEssayContainer>
     )
 }
