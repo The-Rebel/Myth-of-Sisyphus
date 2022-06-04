@@ -12,7 +12,6 @@ export const Outer = styled.div`
     display:flex;
     flex-direction: column;
     margin-top: 89px;
-    padding: 10px;
 `
 
 export const Top = styled.div`
@@ -23,11 +22,14 @@ export const Top = styled.div`
 export const ThumbnailContainer = styled.div`
     display:flex;
     flex-direction: column;
+    position: relative;
 `
 
 export const TopInner = styled.div`
     display: flex;
     flex-direction: column;
+    margin-left: 27px;  
+    height: 100%;
 `
 
 export const DescContainer = styled.div`
@@ -37,4 +39,46 @@ export const DescContainer = styled.div`
 
 export const Label = styled.label`
     font-size: 18px;
+`
+
+export const Input = styled.input`
+    width: 600px;
+    height: 85px;
+    border: none;
+    background-color: #F5F5F5;
+`
+
+export const Textarea = styled.textarea`
+    outline: none;
+    width: 1027px;
+    height: 360px;
+    resize: none;
+    border: none;
+    margin-top: 10px;
+    font-size: 20px;
+    padding: 10px;
+    background-color: #F5F5F5;
+    font-family: 'Spoqa Han Sans Neo', 'sans-serif';
+
+    &:focus {
+      border-left: 1px solid white;
+    }
+`
+
+export const UploadImg = styled.input`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%  );
+
+    display:none;
+`
+
+export const UploadLabel = styled.label`
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%  );
+    cursor: pointer;
+    background-color: #F5F5F5;
 `
