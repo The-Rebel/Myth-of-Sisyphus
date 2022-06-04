@@ -13,7 +13,7 @@ export const Container = styled.header`
 
 export const Inner = styled.div`
     margin: 0 auto;
-    width: 1280px;
+    width: 1718px;
     display: flex;
     justify-content: space-between;
     align-items: center;
