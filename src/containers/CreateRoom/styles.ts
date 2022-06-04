@@ -12,6 +12,7 @@ export const Outer = styled.div`
     display:flex;
     flex-direction: column;
     margin-top: 89px;
+    padding: 10px;
 `
 
 export const Top = styled.div`
@@ -31,6 +32,7 @@ export const TopInner = styled.div`
 
 export const DescContainer = styled.div`
     margin-top: 74px;
+    width: 100%;
 `
 
 export const Label = styled.label`
