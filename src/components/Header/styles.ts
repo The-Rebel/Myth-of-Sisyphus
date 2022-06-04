@@ -34,4 +34,11 @@ export const NavContainer = styled.div`
 `
 
 export const Nav = styled.a`
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+        color: #C65DD8;
+    }
 `
