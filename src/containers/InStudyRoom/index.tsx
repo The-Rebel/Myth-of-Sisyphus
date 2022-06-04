@@ -5,6 +5,9 @@ import { studyRoomState } from "../../recoil"
 
 import { EssayList } from "../../constant"
 import Essay from "../../components/Essay"
+import { useEffect } from "react"
+import { useRouter } from "next/router"
+
 
 export interface EssayListType {
     user_id?: number,
@@ -15,6 +18,16 @@ export interface EssayListType {
 
 const InStudyRoomContainer = () => {
     const studyRoom = useRecoilValue(studyRoomState)
+    const router = useRouter()
+
+    // useEffect(() => {
+    //     // 스터디룸 목록 요청 받기.
+    // })
+
+    const onWriteEssay = () => {
+        router.push("studyroom/write")
+
+    }
 
     return (
         <S.StudyRoomContainer>
@@ -30,6 +43,9 @@ const InStudyRoomContainer = () => {
                             title={essay.title} 
                             content={essay.content}/>
                     )) }
+                    <S.CreateButtonContainer>
+                        <S.CreateButton onClick={onWriteEssay}>생성하귀</S.CreateButton>
+                    </S.CreateButtonContainer>
                 </S.EssayContainer>
             </S.ContentsContainer>
             <S.InfoContainer>

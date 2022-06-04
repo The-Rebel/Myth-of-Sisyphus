@@ -6,6 +6,10 @@ export const Essay = styled.div`
     flex-shrink: 0;
     background-color: white;
     cursor: pointer;
+
+    &:hover {
+        background-color: rgba(0,0,0,0.2)
+    }
 `
 
 export const InfoContainer = styled.div`
@@ -16,19 +20,20 @@ export const InfoContainer = styled.div`
 `
 
 export const Title = styled.div`
-    font-size: 18px;
+    font-size: 20px;
 `
 
 export const Content = styled.div`
-    font-size: 13px;
+    font-size: 15px;
     width: 380px;
-    height: 34px;
+    height: 54px;
     overflow-y: hidden;
+    overflow-x: hidden;
     margin-top: 8px;
 `
 
 export const Nickname = styled.div`
-    font-size: 10px;
+    font-size: 13px;
     font-weight: bold;
-    margin-top: 41px;
+    margin-top: 21px;
 `
