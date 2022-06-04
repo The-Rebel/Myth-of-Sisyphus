@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import * as S from "./styles"
 import Image from "next/image"
 import Empty from "../../assets/img/empty.svg"
+import ActiveButton from "../../components/ActiveButton"
 
 const CreateRoomContainer = () => {
     const [img, setImg] = useState<any>(Empty)
@@ -50,6 +51,9 @@ const CreateRoomContainer = () => {
                     <div><S.Label>스터디룸 설명</S.Label></div>
                     <S.Textarea />
                 </S.DescContainer>
+                <S.ActiveBtnContainer>
+                    <ActiveButton>스터디룸 생성하기</ActiveButton>
+                </S.ActiveBtnContainer>
             </S.Outer>
         </S.Container>
     )

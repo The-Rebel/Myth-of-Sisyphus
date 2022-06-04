@@ -80,5 +80,14 @@ export const UploadLabel = styled.label`
     left: 50%;
     transform: translateX(-50%  );
     cursor: pointer;
-    background-color: #F5F5F5;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+`
+
+export const ActiveBtnContainer = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 50px;
 `
