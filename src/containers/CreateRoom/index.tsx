@@ -35,7 +35,8 @@ const CreateRoomContainer = () => {
                                     type="file" 
                                     onChange={onChangeImg} 
                                     className="uploadImg"
-                                    onMouseEnter={() => setIsHover(true)} />
+                                    onMouseEnter={() => setIsHover(true)} 
+                                    accept="image/*"/>
                                 썸네일 선택하기
                             </S.UploadLabel>
                         </div> }
