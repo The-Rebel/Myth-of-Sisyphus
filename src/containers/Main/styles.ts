@@ -15,9 +15,14 @@ export const RoomsContainer = styled.div`
     display: flex;
     flex-direction: row;
     column-gap: 10px;
-    width: 100%;
     overflow-x: scroll;
+    overflow-y: hidden;
     &::-webkit-scrollbar {
-    display: none;
+        display: none;
   }
+`
+
+export const Outer = styled.div`
+    height: 230px;
+    width: 100%;
 `

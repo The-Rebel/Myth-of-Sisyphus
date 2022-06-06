@@ -7,7 +7,7 @@ const initialValue =''
 
 const WriteEssayContainer = () => {
     const [text, setText] = useState<string>(initialValue)
-    
+
     return (
         <S.WriteEssayContainer>
             <S.Title placeholder="제목을 입력하세요"></S.Title>
@@ -19,7 +19,8 @@ const WriteEssayContainer = () => {
                 ['blockquote', 'link'],
                 ['alignLeft', 'alignCenter', 'alignRight']
             ]}
-            className="textEditor"/> */}
+            className="textEditor"/>  */}
+            
             <S.ButtonContainer>
                 <ActiveButton>임시저장</ActiveButton>
                 <ActiveButton>에세이 등록</ActiveButton>

@@ -35,7 +35,6 @@ export const HoverRoomContainer = styled.div`
     height: 290px;
     opacity: 0;
     visibility: hidden;
-    /* transition: visibility 0s, opacity 1.3s linear; */
     position: absolute;
 `
 
