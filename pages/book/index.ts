@@ -1,0 +1,1 @@
+export { BookContainer as default } from "../../src/containers"

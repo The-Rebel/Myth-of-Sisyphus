@@ -2,6 +2,7 @@ import {StudyRoomList} from "../../constant";
 import * as S from "./styles";
 import StudyRoom from "../../components/StudyRoom";
 import {StaticImageData} from "next/image";
+import { useRouter } from "next/router"
 
 export interface StudyRoomPropsType {
     study_room_id: number;
@@ -14,6 +15,12 @@ export interface StudyRoomPropsType {
 }
 
 const MainContainer = () => {
+    const router = useRouter()
+
+    const onCreateRoom = () => {
+        router.push("/create")
+    }
+
     return (
         <S.MainContainer>
             <S.RoomContainerName top="">내가 시청하던 영상</S.RoomContainerName>
@@ -36,6 +43,8 @@ const MainContainer = () => {
                 내가 시청하던 영상
             </S.RoomContainerName>
             <S.Outer>
+            <button onClick={onCreateRoom}>방생성하기</button> {/*ㅇ내우ㅏㄹ나ㅣ루ㅏ니루ㅏㅣㄴ루ㅏㅣㄴㅇ루ㅏㅣㄴ우라ㅣ눙라ㅣㄴ우라ㅣㅜ나ㅣ루ㅏ니뤃낟후ㅏㅣㅡ햐ㅐ주햐ㅐ누하ㅣ두햐ㅐ두아ㅣㅠ 자ㅠㅜㄱ듀ㅑㅐ */}
+
                 <S.RoomsContainer>
                     {StudyRoomList.map((room) => (
                         <StudyRoom

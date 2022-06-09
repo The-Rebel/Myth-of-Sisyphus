@@ -46,6 +46,7 @@ export const Input = styled.input`
     height: 85px;
     border: none;
     background-color: #F5F5F5;
+    font-size: 18px;
 `
 
 export const Textarea = styled.textarea`

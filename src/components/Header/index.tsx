@@ -14,8 +14,11 @@ const Header = () => {
                 </Link>
                 <S.NavOuter>
                     <S.NavContainer>
-                        <Link href="/create ">
-                            <S.Nav>방 생성하기</S.Nav>
+                        <Link href="/main ">
+                            <S.Nav>The rebel</S.Nav>
+                        </Link>
+                        <Link href="/book ">
+                            <S.Nav>My Book</S.Nav>
                         </Link>
                     </S.NavContainer>
                 </S.NavOuter>
