@@ -14,7 +14,7 @@ export const BookOuter = styled.div`
     flex-direction: row;
     width: 1310px;
     height: 100%;
-    column-gap: 130px;
+    /* column-gap: 130px; */
     overflow-x: scroll;
     overflow-y: hidden;
     padding-left: 2px;
