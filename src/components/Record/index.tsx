@@ -7,7 +7,7 @@ interface RecordPropsType {
 }
 
 const getRandomValue = () => {
-    return Math.floor(Math.random() * 10)+5;
+    return Math.floor(Math.random() * 15)+8;
 }
 
 const Record = ({title, name, created_at}:RecordPropsType) => {
