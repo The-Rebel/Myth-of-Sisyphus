@@ -19,10 +19,14 @@ export const ContentContainer = styled.div`
     margin-top: 35px;
     margin-left: 71px;
     margin-right: 71px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 `
 
 export const Title = styled.div`
-    font-size: 45px;
+    font-size: 40px;
     font-weight: bold;
 `
 

@@ -37,11 +37,10 @@ export const BigSlogan = styled.div`
 
 export const SmallSlogan = styled.div`
     color: white;
-    font-size: 45px;
+    font-size: 35px;
     text-align: center;
     width: 100%;
-    margin: 0 auto;
-    border-top: 24px;
+    margin-top: 10px;
 `
 
 export const ButtonContainer = styled.div`
@@ -110,4 +109,30 @@ export const IfFirstContainer = styled.div`
 export const IfFirst = styled.a`
     color: #C65DD8;
     cursor: pointer;
+`
+
+// export const Boundary = styled.div`
+//     width: 100%;
+//     height: 40px;
+//     background-color: #D9D9D9;
+// `
+
+export const ServiceIntroContainer = styled.section`
+
+`
+
+export const SloganContainer = styled.div`
+    background-color: #f9fafb;
+    width: 100%;
+    height: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+`
+
+export const ServiceSlogan = styled.div`
+    font-size: 40px;
+    text-align: center;
+    width: 100%;
+    font-weight: bold;
 `
