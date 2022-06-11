@@ -2,14 +2,21 @@ import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
 const widthAnimation = keyframes`
-
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 40%;
+    }
 `
 
-export const RecordContainer = styled.div<{duration:number}>`
+export const RecordContainer = styled.div<{duration:string}>`
     flex-shrink: 0;
     height: 150px;
-    width: 700px;
+    width: 40%;
     background-color: #444444;
+
+    animation: ${widthAnimation} ${props => props.duration} ease infinite;
 `
 
 export const Inner = styled.div`
