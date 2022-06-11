@@ -6,9 +6,13 @@ interface RecordPropsType {
     name: string,
 }
 
+const getRandomValue = () => {
+    return Math.floor(Math.random() * 10)+5;
+}
+
 const Record = ({title, name, created_at}:RecordPropsType) => {
     return (
-        <S.RecordContainer duration={2}>
+        <S.RecordContainer duration={`${getRandomValue()}s`}>
             <S.Inner>
                 <S.Title>{title}</S.Title>
                 <S.Name>{name}</S.Name>
