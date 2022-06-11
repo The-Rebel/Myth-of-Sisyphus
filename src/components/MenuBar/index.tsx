@@ -2,15 +2,21 @@ import { useState, useEffect } from "react"
 import * as S from "./styles"
 import { useRouter } from "next/router"
 import Image from "next/image"
-import UpArrow from "../../assets/md/up_arrow.svg"
-import DoubleUpArrow from "../../assets/md/d_up_arrow.svg"
-import DownArrow from "../../assets/md/down_arrow.svg"
+import { UpArrow, 
+        DoubleUpArrow, 
+        DownArrow, 
+        DoubleDownArrow, 
+        WriteBook, 
+        ExpBook, 
+        WriteReadingRec, 
+        ExpReadingRec } from "../../assets/md"
 
 const MenuBar = () => {
     const router = useRouter()
 
     const [possiblePath, setPossiblePath] = useState<boolean>(false)
     const [upHover, setUpHover] = useState<boolean>(false)
+    const [downHover, setDownHover] = useState<boolean>(false)
     const [isClick, setIsClick] = useState<boolean>(false)
 
     useEffect(() => {
@@ -24,17 +30,39 @@ const MenuBar = () => {
             { possiblePath && 
                 <div>
                     <S.MenuBarArrow 
-                        onMouseEnter={() => setHover(true)} 
-                        onMouseLeave={() => setHover(false)}
+                        onMouseEnter={() => setUpHover(true)} 
+                        onMouseLeave={() => setUpHover(false)}
                         onClick={() => setIsClick(true)}>
-                        { hover ? <Image src={DoubleUpArrow} alt="double up arrow" width={50} height={51}/> : 
+                        { upHover ? <Image src={DoubleUpArrow} alt="double up arrow" width={50} height={51}/> : 
                         <Image src={UpArrow} alt="up arrow" width={50} height={29}/> }
                     </S.MenuBarArrow>
                     { isClick &&
                         <S.MenuBarContainer>
-                            <S.CloseArrow>
-                                <Image src={DownArrow} alt="down arrow"/>
+                            <S.CloseArrow 
+                                onMouseEnter={() => setDownHover(true)}
+                                onMouseLeave={() => setDownHover(false)}
+                                onClick={() => {setIsClick(false); setDownHover(false)}}>
+                                { downHover ? <Image src={DoubleDownArrow} alt="double down arrow"/> : 
+                                <Image src={DownArrow} alt="down arrow"/> }
                             </S.CloseArrow>
+                            <S.Inner>
+                                <S.Item> 
+                                    <Image src={WriteBook} alt="write book"/>
+                                    <S.Label>책 집필하기</S.Label>
+                                </S.Item>
+                                <S.Item> 
+                                    <Image src={ExpBook} alt="explored book"/>
+                                    <S.Label>책 둘러보기</S.Label>
+                                </S.Item>
+                                <S.Item> 
+                                    <Image src={WriteReadingRec} alt="write reading book"/>
+                                    <S.Label>독서기록 쓰기</S.Label>
+                                </S.Item>
+                                <S.Item> 
+                                    <Image src={ExpReadingRec} alt="explored reading record"/>
+                                    <S.Label>독서기록 둘러보기</S.Label>
+                                </S.Item>
+                            </S.Inner>
                         </S.MenuBarContainer>
                     }
                 </div>
