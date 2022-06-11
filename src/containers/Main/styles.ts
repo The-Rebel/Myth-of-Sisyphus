@@ -10,6 +10,11 @@ export const RoomContainerName = styled.div<{top: string}>`
     margin-top: ${props => props.top};
 `
 
+export const Outer = styled.div`
+    height: 230px;
+    width: 100%;
+`
+
 export const RoomsContainer = styled.div`
     margin-top: 15px;
     display: flex;
@@ -20,9 +25,4 @@ export const RoomsContainer = styled.div`
     &::-webkit-scrollbar {
         display: none;
   }
-`
-
-export const Outer = styled.div`
-    height: 230px;
-    width: 100%;
 `
