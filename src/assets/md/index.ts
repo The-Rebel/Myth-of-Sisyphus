@@ -7,3 +7,9 @@ export { default as WriteBook } from "./write_book.svg"
 export { default as ExpBook } from "./explored_book.svg"
 export { default as WriteReadingRec } from "./write_reading_record.svg"
 export { default as ExpReadingRec } from "./explored_reading_record.svg"
+
+export { default as PWriteBook } from "./p_write_book.svg"
+export { default as PExpBook } from "./p_explored_book.svg"
+export { default as PWriteReadingRec } from "./p_write_reading_record.svg"
+export { default as PExpReadingRec } from "./p_explored_reading_record.svg"
+

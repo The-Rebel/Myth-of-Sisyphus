@@ -32,14 +32,18 @@ export const Inner = styled.div`
     column-gap: 250px;
 `
 
-export const Item = styled.div`
+export const Item = styled.a`
     display: flex;
     flex-direction: column;
     row-gap: 70px;
     cursor: pointer;
+
+    & .active {
+        color: #C65DD8;
+    }
 `
 
-export const Label = styled.label`
+export const Label = styled.label<{color:string}>`
     font-size: 35px;
-    color: white;
+    color: ${props => props.color};
 `
