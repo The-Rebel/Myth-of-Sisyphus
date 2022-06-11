@@ -133,3 +133,48 @@ export const BookList = [
         name: "임연상7"
     },
 ]
+
+export const ReadingRecordList = [
+    {
+        id: 1,
+        title: "독서기록1",
+        created_at: "2022-01-20",
+        name: "닉네임1"
+    },
+    {
+        id: 2,
+        title: "독서기록2",
+        created_at: "2022-01-20",
+        name: "닉네임2"
+    },
+    {
+        id: 3,
+        title: "독서기록3",
+        created_at: "2022-01-20",
+        name: "닉네임3"
+    },
+    {
+        id: 4,
+        title: "독서기록4",
+        created_at: "2022-01-20",
+        name: "닉네임4"
+    },
+    {
+        id: 5,
+        title: "독서기록5",
+        created_at: "2022-01-20",
+        name: "닉네임5"
+    },
+    {
+        id: 6,
+        title: "독서기록6",
+        created_at: "2022-01-20",
+        name: "닉네임6"
+    },
+    {
+        id: 7,
+        title: "독서기록7",
+        created_at: "2022-01-20",
+        name: "닉네임7"
+    },
+]

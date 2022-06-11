@@ -75,16 +75,16 @@ const MenuBar = () => {
                                     <S.Label color="white">독서기록 쓰기</S.Label>
                                 </S.Item>
                                     <Link href="/mybook/read-record">
-                                            { router.pathname == "/mybook/read-record" ? 
-                                            <S.Item>
-                                                <Image src={PExpReadingRec} alt="purple explored reading record"/>
-                                                <S.Label color="#C65DD8">독서기록 둘러보기</S.Label>
-                                            </S.Item> :
-                                            <S.Item>
-                                                <Image src={ExpReadingRec} alt="explored reading record"/>
-                                                <S.Label color="white">독서기록 둘러보기</S.Label>
-                                            </S.Item>
-                                            }
+                                        { router.pathname == "/mybook/read-record" ? 
+                                        <S.Item>
+                                            <Image src={PExpReadingRec} alt="purple explored reading record"/>
+                                            <S.Label color="#C65DD8">독서기록 둘러보기</S.Label>
+                                        </S.Item> :
+                                        <S.Item>
+                                            <Image src={ExpReadingRec} alt="explored reading record"/>
+                                            <S.Label color="white">독서기록 둘러보기</S.Label>
+                                        </S.Item>
+                                        }
                                     </Link>
                             </S.Inner>
                         </S.MenuBarContainer>
