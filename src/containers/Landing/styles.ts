@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { css } from "@emotion/react";
 
 export const Background = styled.div<{opacity:string}>`
     position: absolute;
@@ -147,16 +148,40 @@ export const Wrapper = styled.div`
     width: 100%;
 `
 
-export const FstVideoWapper = styled.div`
+export const FstVideoWapper = styled.div<{goAnimation: boolean}>`
     position: absolute;
     top: 212px;
     left: 224px;
+
+    transition: transform 800ms ease, opacity 800ms ease;
+    ${props => 
+        props.goAnimation
+            ? css`
+                transform: scale(1.1);
+                opacity: 1;
+            `
+            : css`
+                opacity: 0;
+            `
+    }
 `
 
-export const SecVideoWapper = styled.div`
+export const SecVideoWapper = styled.div<{goAnimation: boolean}>`
     position: absolute;
     top: 492px;
     left: 498px;
+
+    transition: transform 800ms ease, opacity 800ms ease;
+    ${props => 
+        props.goAnimation
+            ? css`
+                transform: scale(1.1);
+                opacity: 1;
+            `
+            : css`
+                opacity: 0;
+            `
+    }
 `
 
 export const MainVideoExplainContainer = styled.div`
@@ -186,16 +211,40 @@ export const MainEssayContainer = styled.div`
     background-color: #f9fafb;
 `
 
-export const FstEssayWrapper = styled.div`
+export const FstEssayWrapper = styled.div<{goAnimation: boolean}>`
     position: absolute;
     top: 102px;
     right: 404px;
+
+    transition: transform 800ms ease, opacity 800ms ease;
+    ${props => 
+        props.goAnimation
+            ? css`
+                transform: scale(1.1);
+                opacity: 1;
+            `
+            : css`
+                opacity: 0;
+            `
+    }
 `
 
-export const SecEssayWrapper = styled.div`
+export const SecEssayWrapper = styled.div<{goAnimation: boolean}>`
     position: absolute;
     top: 644px;
     left: 374px;
+
+    transition: transform 800ms ease, opacity 800ms ease;
+    ${props => 
+        props.goAnimation
+            ? css`
+                transform: scale(1.1);
+                opacity: 1;
+            `
+            : css`
+                opacity: 0;
+            `
+    }
 `
 
 export const MainEssayExplainContainer = styled.div`

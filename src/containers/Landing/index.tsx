@@ -3,16 +3,42 @@ import Background from "../../assets/img/landing_background.svg"
 import Image from "next/image"
 import { useRouter } from "next/router"
 import { LifeVideoImg, SpaceVideoImg, SuicideEssay, HumanEssay } from "../../assets/img"
+import { useEffect, useState } from "react"
 
 const LandingContainer = () => {
     const router = useRouter()
+    const [scrollPosition, setScrollPosition] = useState(0);
 
-    const onMoveSignin = () => {
-        router.push("sign/signin")
+    useEffect(() => {
+        window.addEventListener("scroll", updateScroll);
+        console.log(scrollPosition);
+
+        return () => {
+            window.removeEventListener("scroll", updateScroll);
+        };
+    }, [scrollPosition])
+
+    const updateScroll = () => {
+        setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+      };
+
+    const scrollYCheck = () => {
+        if (scrollPosition  > 750) return true
+        return false
+    }
+    const scrollYCheck1 = () => {
+        if (scrollPosition > 1030) return true
+        return false
     }
 
-    const onMoveSignup = () => {
-        router.push("sign/signup")
+    const scrollYCheck2 = () => {
+        if (scrollPosition > 1590) return true
+        return false
+    }
+
+    const scrollYCheck3 = () => {
+        if (scrollPosition > 2120) return true
+        return false
     }
 
     return (
@@ -22,10 +48,10 @@ const LandingContainer = () => {
                     <S.BigSlogan>The Rebel</S.BigSlogan>
                     <S.SmallSlogan>깊은 생각이 모이는 장소</S.SmallSlogan>
                     <S.ButtonContainer>
-                        <S.BigButton onClick={onMoveSignup}>시작하기</S.BigButton>
+                        <S.BigButton onClick={() => router.push("sign/signup")}>시작하기</S.BigButton>
                     </S.ButtonContainer>
                 </S.ItemContainer>
-                <S.LoginButton onClick={onMoveSignin}>로그인</S.LoginButton>
+                <S.LoginButton onClick={() => router.push("sign/signin")}>로그인</S.LoginButton>
             </S.Background>
             <S.ImgContainer>
                 <Image src={Background} alt="background image"/>
@@ -40,10 +66,10 @@ const LandingContainer = () => {
                 </S.SloganContainer>
                 <S.MainVideoContainer>
                     <S.Wrapper>
-                        <S.FstVideoWapper>
+                        <S.FstVideoWapper goAnimation={scrollYCheck()}>
                             <Image src={LifeVideoImg} alt="life video image" />
                         </S.FstVideoWapper>
-                        <S.SecVideoWapper>
+                        <S.SecVideoWapper goAnimation={scrollYCheck1()}>
                             <Image src={SpaceVideoImg} alt="life video image" />
                         </S.SecVideoWapper>
                         <S.MainVideoExplainContainer>
@@ -57,10 +83,10 @@ const LandingContainer = () => {
                 </S.MainVideoContainer>
                 <S.MainEssayContainer>
                     <S.Wrapper>
-                        <S.FstEssayWrapper>
+                        <S.FstEssayWrapper goAnimation={scrollYCheck2()}>
                             <Image src={SuicideEssay} alt="essay about suicide" width={629} height={643} />
                         </S.FstEssayWrapper>
-                        <S.SecEssayWrapper>
+                        <S.SecEssayWrapper goAnimation={scrollYCheck3()}>
                             <Image src={HumanEssay} alt="essay about human" />
                         </S.SecEssayWrapper>
                         <S.MainEssayExplainContainer>
