@@ -15,6 +15,7 @@ export const RecordContainer = styled.div<{duration:string}>`
     height: 150px;
     width: 40%;
     background-color: #444444;
+    cursor: pointer;
 
     animation: ${widthAnimation} ${props => props.duration} ease infinite;
 `
