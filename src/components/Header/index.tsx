@@ -31,7 +31,7 @@ const Header = () => {
                             <Link href="/main ">
                                 <S.Nav>The rebel</S.Nav>
                             </Link>
-                            <Link href="/book ">
+                            <Link href="/mybook ">
                                 <S.Nav>My Book</S.Nav>
                             </Link>
                         </S.NavContainer>
