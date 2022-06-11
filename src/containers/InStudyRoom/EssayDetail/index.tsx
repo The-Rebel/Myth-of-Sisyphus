@@ -1,7 +1,6 @@
 import * as S from "./styles"
 import { useRecoilValue } from "recoil";
 import { essayState } from "../../../recoil";
-import { useEffect } from "react";
 
 const EssayDetailContainer = () => {
     const essay = useRecoilValue(essayState)
