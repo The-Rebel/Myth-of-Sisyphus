@@ -1,22 +1,30 @@
 import styled from "@emotion/styled";
 
 export const MainContainer = styled.section`
-    margin-top: 110px;
+    margin-top: 60px;
     margin-left: 100px;
 `
 
-export const RoomContainerName = styled.div<{top: string}>`
+export const StudyRoomContainer = styled.div`
+    position: fixed;
+    bottom: 20px;
+`
+
+export const Label = styled.div`
     font-size: 30px;
-    margin-top: ${props => props.top};
+    font-weight: bold;
 `
 
 export const Outer = styled.div`
     height: 230px;
     width: 100%;
+    margin-top: 15px;
 `
 
-export const RoomsContainer = styled.div`
-    margin-top: 15px;
+export const Rooms = styled.div`    
+    position: fixed;
+    bottom: 20px;
+
     display: flex;
     flex-direction: row;
     column-gap: 10px;

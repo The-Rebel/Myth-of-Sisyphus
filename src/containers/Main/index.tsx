@@ -23,60 +23,25 @@ const MainContainer = () => {
 
     return (
         <S.MainContainer>
-            <S.RoomContainerName top="">내가 시청하던 영상</S.RoomContainerName>
-            <S.Outer>
-                <S.RoomsContainer>
-                    {StudyRoomList.map((room) => (
-                        <StudyRoom
-                            key={room.study_room_id}
-                            study_room_id={room.study_room_id}
-                            nickname={room.nickname}
-                            video_url={room.video_url}
-                            thumbnail={room.thumbnail}
-                            study_room_name={room.study_room_name}
-                            description={room.description}
-                        ></StudyRoom>
-                    ))}
-                </S.RoomsContainer>
-            </S.Outer>
-            <S.RoomContainerName top="90px">
-                내가 시청하던 영상
-            </S.RoomContainerName>
-            <S.Outer>
-            <button onClick={onCreateRoom}>방생성하기</button> {/*ㅇ내우ㅏㄹ나ㅣ루ㅏ니루ㅏㅣㄴ루ㅏㅣㄴㅇ루ㅏㅣㄴ우라ㅣ눙라ㅣㄴ우라ㅣㅜ나ㅣ루ㅏ니뤃낟후ㅏㅣㅡ햐ㅐ주햐ㅐ누하ㅣ두햐ㅐ두아ㅣㅠ 자ㅠㅜㄱ듀ㅑㅐ */}
-
-                <S.RoomsContainer>
-                    {StudyRoomList.map((room) => (
-                        <StudyRoom
-                            key={room.study_room_id}
-                            study_room_id={room.study_room_id}
-                            nickname={room.nickname}
-                            video_url={room.video_url}
-                            thumbnail={room.thumbnail}
-                            study_room_name={room.study_room_name}
-                            description={room.description}
-                        ></StudyRoom>
-                    ))}
-                </S.RoomsContainer>
-            </S.Outer>
-            <S.RoomContainerName top="90px">
-                내가 시청하던 영상
-            </S.RoomContainerName>
-            <S.Outer>
-                <S.RoomsContainer>
-                    {StudyRoomList.map((room) => (
-                        <StudyRoom
-                            key={room.study_room_id}
-                            study_room_id={room.study_room_id}
-                            nickname={room.nickname}
-                            video_url={room.video_url}
-                            thumbnail={room.thumbnail}
-                            study_room_name={room.study_room_name}
-                            description={room.description}
-                        ></StudyRoom>
-                    ))}
-                </S.RoomsContainer>
-            </S.Outer>
+            <S.StudyRoomContainer>
+                <S.Label>스터디룸</S.Label>
+                <S.Outer>
+                    <S.Rooms>
+                        {StudyRoomList.map((room) => (
+                            <StudyRoom
+                                key={room.study_room_id}
+                                study_room_id={room.study_room_id}
+                                nickname={room.nickname}
+                                video_url={room.video_url}
+                                thumbnail={room.thumbnail}
+                                study_room_name={room.study_room_name}
+                                description={room.description}
+                            ></StudyRoom>
+                        ))}
+                    </S.Rooms>
+                <button onClick={onCreateRoom}>방생성하기</button> {/*ㅇ내우ㅏㄹ나ㅣ루ㅏ니루ㅏㅣㄴ루ㅏㅣㄴㅇ루ㅏㅣㄴ우라ㅣ눙라ㅣㄴ우라ㅣㅜ나ㅣ루ㅏ니뤃낟후ㅏㅣㅡ햐ㅐ주햐ㅐ누하ㅣ두햐ㅐ두아ㅣㅠ 자ㅠㅜㄱ듀ㅑㅐ */}
+                </S.Outer>
+            </S.StudyRoomContainer>
         </S.MainContainer>
     );
 };
