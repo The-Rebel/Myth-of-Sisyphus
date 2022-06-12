@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
+import exp from "constants";
 
 export const MainContainer = styled.section`
     margin-top: 60px;
@@ -33,28 +34,31 @@ export const Rooms = styled.div`
   }
 `
 
+export const NotPreviewContainer = styled.section`
+    width: 100%;
+    height: 590px;
+`
+
 export const PreviewContainer = styled.section<{isHover:boolean}>`
     display: flex;
-    justify-content: center;    
     align-items: center;
     flex-direction: row;
     opacity: 0;
     visibility: hidden;
     width: 100%;
     height: 590px;
-    transition: opacity .2s
 
     ${props => props.isHover && css`
-        background-color: #F5F5F5;
         opacity: 1; 
         visibility: visible;
         transition-delay: .5s;
-    `}
+    `};
 `
 
 export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
+    margin-left: 49px;
 `
 
 export const Title = styled.div`
@@ -66,10 +70,23 @@ export const Title = styled.div`
 
 export const Description = styled.div`
     font-size: 20px;
-    color: white;
-    width: 370px;
-    height: 182px;
-    padding-bottom: 35px;
-    padding-left: 30px;
+    width: 650px;
+    height: 130px;
     overflow-y: hidden;
+    margin-top: 60px;
 `
+
+export const Nickname = styled.div`
+    display: flex;
+    margin-top: 250px;
+    font-size: 20px;
+    font-weight: bold;
+    column-gap: 5px;
+`
+
+export const Introduce = styled.div`
+    font-size: 15px;
+    font-weight: bold;
+    vertical-align: bottom;
+    align-self: flex-end;
+` 

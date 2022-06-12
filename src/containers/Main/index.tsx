@@ -46,21 +46,30 @@ const MainContainer = () => {
 
     return (
         <S.MainContainer>
-            <S.PreviewContainer isHover={isHover}>
-                <ReactPlayer 
-                    ref={hostVideo}
-                    url={studyRoom.video_url} 
-                    playing={isPlaying}
-                    onProgress={playingControl}
-                    width={942} 
-                    height={530}
-                    muted={true}/> 
-                <S.InfoContainer>
-                    <S.Title>dknld</S.Title>
-                    <div>dknld</div>
-                    <div>dknld</div>
-                </S.InfoContainer>
-            </S.PreviewContainer>   
+            { isHover ? 
+             <S.PreviewContainer isHover={isHover}>
+             <ReactPlayer 
+                 ref={hostVideo}
+                 url={studyRoom.video_url} 
+                 playing={isPlaying}
+                 onProgress={playingControl}
+                 width={942} 
+                 height={530}
+                 muted={true}/> 
+             <S.InfoContainer>
+                 <S.Title>{studyRoom.study_room_name}</S.Title>
+                 <S.Description>{studyRoom.description}</S.Description>
+                 <S.Nickname>
+                     {studyRoom.nickname}
+                     <S.Introduce>님의 스터디룸</S.Introduce>
+                 </S.Nickname>
+             </S.InfoContainer>
+         </S.PreviewContainer> 
+         : 
+         <S.NotPreviewContainer>
+            <div>recommendation studyroom here</div>
+         </S.NotPreviewContainer> }
+            
             <S.StudyRoomContainer>
                 <S.Label>스터디룸</S.Label>
                 <S.Outer>
