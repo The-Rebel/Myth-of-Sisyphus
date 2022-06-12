@@ -17,14 +17,7 @@ export const RoomContainer = styled.div`
             opacity: 1; 
             visibility: visible;
             z-index: 2;
-            transition-delay: .4s;
-        }
-
-        & .preview {
-            opacity: 1; 
-            visibility: visible;
-            transition-delay: .4s;
-            background-color: red;
+            /* transition-delay: .4s; */
         }
     }
 `
@@ -35,27 +28,6 @@ export const HoverRoomContainer = styled.div`
     opacity: 0;
     visibility: hidden;
     position: absolute;
-`
-
-export const Title = styled.div`
-    color: white;
-    font-size: 23px;
-    margin-top: 30px;
-    margin-right: 48px;
-    margin-bottom: 13px;
-    margin-left: 30px;
-    width: 422px;
-    height: 30px;
-`
-
-export const Description = styled.div`
-    font-size: 20px;
-    color: white;
-    width: 370px;
-    height: 182px;
-    padding-bottom: 35px;
-    padding-left: 30px;
-    overflow-y: hidden;
 `
 
 export const PlayButton = styled.div`

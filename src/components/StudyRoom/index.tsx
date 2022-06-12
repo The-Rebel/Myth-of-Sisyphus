@@ -18,6 +18,10 @@ const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_n
     const router = useRouter()
 
     const onWatchVideo = () => {
+        router.push("studyroom")
+    }
+
+    const onHover = () => {
         const data = {
             study_room_id: study_room_id,
             nickname: nickname,
@@ -27,21 +31,17 @@ const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_n
         }
         setStudyRoom(data)
 
-        router.push("studyroom")
-    }
-
-    const onEnter = () => {
         isHover(true)
     }
 
     const onLeave = () => {
         clearTimeout(timer)
-        isHover(false)  
+        isHover(false)
     }
 
     return (
         <S.RoomContainer 
-            onMouseEnter={() => setTimer(setTimeout(onEnter, 400))} 
+            onMouseEnter={() => setTimer(setTimeout(onHover, 400)) } 
             onMouseLeave={onLeave} >
             <S.HoverRoomContainer className="items">
                 {/* <S.Title>{study_room_name}</S.Title> */}

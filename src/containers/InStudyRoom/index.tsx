@@ -26,7 +26,6 @@ const InStudyRoomContainer = () => {
 
     const onWriteEssay = () => {
         router.push("studyroom/write")
-
     }
 
     return (

@@ -5,6 +5,10 @@ import {StaticImageData} from "next/image";
 import { useRouter } from "next/router"
 import { useState } from "react";
 
+import { useRecoilValue } from "recoil"
+import { studyRoomState } from "../../recoil"
+import ReactPlayer from "react-player"
+
 export interface StudyRoomResType {
     study_room_id: number;
     user_id?: number;
@@ -18,6 +22,7 @@ export interface StudyRoomResType {
 const MainContainer = () => {
     const router = useRouter()
     const [isHover, setIsHover] = useState<boolean>(false)
+    const studyRoom = useRecoilValue(studyRoomState)
 
     const onCreateRoom = () => {
         router.push("/create")
@@ -26,7 +31,12 @@ const MainContainer = () => {
     return (
         <S.MainContainer>
             <S.PreviewContainer isHover={isHover}>
-                
+                <ReactPlayer url={studyRoom.video_url} controls={true} width={942} height={530} /> 
+                <S.InfoContainer>
+                    <S.Title>dknld</S.Title>
+                    <div>dknld</div>
+                    <div>dknld</div>
+                </S.InfoContainer>
             </S.PreviewContainer>   
             <S.StudyRoomContainer>
                 <S.Label>스터디룸</S.Label>
