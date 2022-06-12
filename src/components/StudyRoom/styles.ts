@@ -17,7 +17,7 @@ export const RoomContainer = styled.div`
             opacity: 1; 
             visibility: visible;
             z-index: 2;
-            /* transition-delay: .4s; */
+            transition-delay: .4s;
         }
     }
 `

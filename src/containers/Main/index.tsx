@@ -3,7 +3,7 @@ import * as S from "./styles";
 import StudyRoom from "../../components/StudyRoom";
 import {StaticImageData} from "next/image";
 import { useRouter } from "next/router"
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import { useRecoilValue } from "recoil"
 import { studyRoomState } from "../../recoil"
@@ -19,19 +19,46 @@ export interface StudyRoomResType {
     description: string;
 }
 
+interface playingType {
+    played: number;
+    playedSeconds: number;
+    loaded: number;
+    loadedSeconds: number
+}
+
 const MainContainer = () => {
     const router = useRouter()
     const [isHover, setIsHover] = useState<boolean>(false)
+    const [isPlaying, setIsPlaying] = useState<boolean>(true)
     const studyRoom = useRecoilValue(studyRoomState)
+    const hostVideo = useRef<ReactPlayer>(null)
 
     const onCreateRoom = () => {
-        router.push("/create")
+        router.push("/create")  
+    }
+
+    const playingControl = (state:playingType) => {
+        console.log(state.played);
+        console.log(state.playedSeconds);
+        console.log(state.loaded);
+        console.log(state.loadedSeconds);
+        
+        
+        if (hostVideo.current) {
+            hostVideo.current.seekTo(0)
+        }
     }
 
     return (
         <S.MainContainer>
             <S.PreviewContainer isHover={isHover}>
-                <ReactPlayer url={studyRoom.video_url} controls={true} width={942} height={530} /> 
+                <ReactPlayer 
+                    ref={hostVideo}
+                    url={studyRoom.video_url} 
+                    playing={isPlaying}
+                    onProgress={playingControl}
+                    width={942} 
+                    height={530}/> 
                 <S.InfoContainer>
                     <S.Title>dknld</S.Title>
                     <div>dknld</div>
@@ -51,7 +78,8 @@ const MainContainer = () => {
                                 thumbnail={room.thumbnail}
                                 study_room_name={room.study_room_name}
                                 description={room.description}
-                                isHover={setIsHover}
+                                setIsHover={setIsHover}
+                                setIsPlaying={setIsPlaying}
                             ></StudyRoom>
                         ))}
                     </S.Rooms>

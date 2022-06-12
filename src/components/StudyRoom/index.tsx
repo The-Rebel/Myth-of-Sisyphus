@@ -9,10 +9,11 @@ import { useState } from "react"
 
 
 interface StudyRoomPropsType extends StudyRoomResType {
-    isHover: React.Dispatch<React.SetStateAction<boolean>>
+    setIsHover: React.Dispatch<React.SetStateAction<boolean>>
+    setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_name, description, isHover }: StudyRoomPropsType) => {
+const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_name, description, setIsHover, setIsPlaying }: StudyRoomPropsType) => {
     const setStudyRoom = useSetRecoilState(studyRoomState)
     const [timer, setTimer] = useState<any>()
     const router = useRouter()
@@ -30,13 +31,14 @@ const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_n
             description: description
         }
         setStudyRoom(data)
-
-        isHover(true)
+        setIsHover(true)
+        setIsPlaying(true)
     }
 
     const onLeave = () => {
         clearTimeout(timer)
-        isHover(false)
+        setIsHover(false)
+        setIsPlaying(false)
     }
 
     return (

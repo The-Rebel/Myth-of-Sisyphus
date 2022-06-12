@@ -42,12 +42,13 @@ export const PreviewContainer = styled.section<{isHover:boolean}>`
     visibility: hidden;
     width: 100%;
     height: 590px;
+    transition: opacity .2s
 
     ${props => props.isHover && css`
         background-color: #F5F5F5;
         opacity: 1; 
         visibility: visible;
-        transition-delay: .4s;
+        transition-delay: .5s;
     `}
 `
 
@@ -58,10 +59,6 @@ export const InfoContainer = styled.div`
 
 export const Title = styled.div`
     font-size: 35px;
-    /* margin-top: 30px;
-    margin-right: 48px;
-    margin-bottom: 13px;
-    margin-left: 30px; */
     font-weight: bold;
     width: 422px;
     height: 30px;
