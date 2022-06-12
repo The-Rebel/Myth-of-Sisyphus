@@ -28,7 +28,7 @@ interface playingType {
 
 const MainContainer = () => {
     const router = useRouter()
-    const [isHover, setIsHover] = useState<boolean>(false)
+    const [isClick, setIsClick] = useState<boolean>(false)
     const [isPlaying, setIsPlaying] = useState<boolean>(true)
     const studyRoom = useRecoilValue(studyRoomState)
     const hostVideo = useRef<ReactPlayer>(null)
@@ -46,8 +46,8 @@ const MainContainer = () => {
 
     return (
         <S.MainContainer>
-            { isHover ? 
-             <S.PreviewContainer isHover={isHover}>
+            { isClick ? 
+             <S.PreviewContainer isClick={isClick}>
              <ReactPlayer 
                  ref={hostVideo}
                  url={studyRoom.video_url} 
@@ -83,7 +83,7 @@ const MainContainer = () => {
                                 thumbnail={room.thumbnail}
                                 study_room_name={room.study_room_name}
                                 description={room.description}
-                                setIsHover={setIsHover}
+                                setIsClick={setIsClick}
                                 setIsPlaying={setIsPlaying}
                             ></StudyRoom>
                         ))}

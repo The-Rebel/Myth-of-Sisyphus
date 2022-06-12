@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
-import exp from "constants";
 
 export const MainContainer = styled.section`
     margin-top: 60px;
@@ -39,7 +38,7 @@ export const NotPreviewContainer = styled.section`
     height: 590px;
 `
 
-export const PreviewContainer = styled.section<{isHover:boolean}>`
+export const PreviewContainer = styled.section<{isClick:boolean}>`
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -48,10 +47,10 @@ export const PreviewContainer = styled.section<{isHover:boolean}>`
     width: 100%;
     height: 590px;
 
-    ${props => props.isHover && css`
+    ${props => props.isClick && css`
         opacity: 1; 
         visibility: visible;
-        transition-delay: .5s;
+        /* transition-delay: .5s; */
     `};
 `
 

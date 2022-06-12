@@ -9,20 +9,20 @@ import { useState } from "react"
 
 
 interface StudyRoomPropsType extends StudyRoomResType {
-    setIsHover: React.Dispatch<React.SetStateAction<boolean>>
+    setIsClick: React.Dispatch<React.SetStateAction<boolean>>
     setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_name, description, setIsHover, setIsPlaying }: StudyRoomPropsType) => {
+const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_name, description, setIsClick, setIsPlaying }: StudyRoomPropsType) => {
     const setStudyRoom = useSetRecoilState(studyRoomState)
-    const [timer, setTimer] = useState<any>()
     const router = useRouter()
+    const [isClick1, setIsClick1] = useState<boolean>(false)
 
     const onWatchVideo = () => {
         router.push("studyroom")
     }
 
-    const onHover = () => {
+    const onThumbClick = () => {
         const data = {
             study_room_id: study_room_id,
             nickname: nickname,
@@ -31,20 +31,24 @@ const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_n
             description: description
         }
         setStudyRoom(data)
-        setIsHover(true)
+        setIsClick(true)
         setIsPlaying(true)
+
+        setIsClick1(true)
     }
 
-    const onLeave = () => {
-        clearTimeout(timer)
-        setIsHover(false)
+    const onThumbLeave = () => {
+        setIsClick(false)
         setIsPlaying(false)
+
+        setIsClick1(false)
     }
 
     return (
         <S.RoomContainer 
-            onMouseEnter={() => setTimer(setTimeout(onHover, 400)) } 
-            onMouseLeave={onLeave} >
+            isClick={isClick1}
+            onClick={onThumbClick} 
+            onMouseLeave={onThumbLeave} >
             <S.HoverRoomContainer className="items">
                 {/* <S.Title>{study_room_name}</S.Title> */}
                 {/* <S.Description>{description}</S.Description> */}
