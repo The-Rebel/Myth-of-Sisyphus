@@ -15,7 +15,7 @@ const Books = ({title, name}: BookPropsType) => {
     const [timer, setTimer] = useState<any>()
 
     const onEnter = () => {
-            setHover(true)
+        setHover(true)
     }
 
     const onLeave = () => {

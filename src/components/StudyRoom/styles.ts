@@ -8,31 +8,30 @@ export const RoomContainer = styled.div`
 
     &:hover {
         position: relative;
-        width: 500px;
-        height: 290px;
         display:flex;
         align-items: center;
         transition-delay: .4s;
         
         & .items {
             background-color: rgba(0, 0, 0, 0.8);
-            opacity: 1;
+            opacity: 1; 
             visibility: visible;
             z-index: 2;
             transition-delay: .4s;
         }
 
-        & .thumbnail {
-            width: 500px;
-            height: 290px;
-            z-index: 1;
+        & .preview {
+            opacity: 1; 
+            visibility: visible;
+            transition-delay: .4s;
+            background-color: red;
         }
     }
 `
 
 export const HoverRoomContainer = styled.div`
-    width: 500px;
-    height: 290px;
+    width: 400px;
+    height: 230px;
     opacity: 0;
     visibility: hidden;
     position: absolute;
@@ -61,7 +60,9 @@ export const Description = styled.div`
 
 export const PlayButton = styled.div`
     position: absolute;
-    bottom: 24px;
-    right: 24px;
+    bottom: 50%;
+    right: 50%;
     cursor:pointer;
+    transform: translate(50%, 50%);
 `
+

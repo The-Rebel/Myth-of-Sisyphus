@@ -3,8 +3,9 @@ import * as S from "./styles";
 import StudyRoom from "../../components/StudyRoom";
 import {StaticImageData} from "next/image";
 import { useRouter } from "next/router"
+import { useState } from "react";
 
-export interface StudyRoomPropsType {
+export interface StudyRoomResType {
     study_room_id: number;
     user_id?: number;
     nickname: string;
@@ -16,6 +17,7 @@ export interface StudyRoomPropsType {
 
 const MainContainer = () => {
     const router = useRouter()
+    const [isHover, setIsHover] = useState<boolean>(false)
 
     const onCreateRoom = () => {
         router.push("/create")
@@ -23,6 +25,9 @@ const MainContainer = () => {
 
     return (
         <S.MainContainer>
+            <S.PreviewContainer isHover={isHover}>
+                
+            </S.PreviewContainer>   
             <S.StudyRoomContainer>
                 <S.Label>스터디룸</S.Label>
                 <S.Outer>
@@ -36,10 +41,11 @@ const MainContainer = () => {
                                 thumbnail={room.thumbnail}
                                 study_room_name={room.study_room_name}
                                 description={room.description}
+                                isHover={setIsHover}
                             ></StudyRoom>
                         ))}
                     </S.Rooms>
-                <button onClick={onCreateRoom}>방생성하기</button> {/*ㅇ내우ㅏㄹ나ㅣ루ㅏ니루ㅏㅣㄴ루ㅏㅣㄴㅇ루ㅏㅣㄴ우라ㅣ눙라ㅣㄴ우라ㅣㅜ나ㅣ루ㅏ니뤃낟후ㅏㅣㅡ햐ㅐ주햐ㅐ누하ㅣ두햐ㅐ두아ㅣㅠ 자ㅠㅜㄱ듀ㅑㅐ */}
+                {/* <button onClick={onCreateRoom}>방생성하기</button>*/}
                 </S.Outer>
             </S.StudyRoomContainer>
         </S.MainContainer>
