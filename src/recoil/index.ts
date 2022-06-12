@@ -10,7 +10,9 @@ interface studyRoomType {
 
 export const studyRoomState = atom({
     key: "studyRoomState",
-    default: {} as studyRoomType
+    default: {
+        video_url: "https://www.youtube.com/watch?v=5M47lGZyCqI&list=PLzjEyzTnJeRJKITmeKV_WPElY7coZrs-t&index=2&ab_channel=SEMICOLON"
+    } as studyRoomType
 })
 
 interface essayType {

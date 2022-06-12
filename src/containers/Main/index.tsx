@@ -3,7 +3,7 @@ import * as S from "./styles";
 import StudyRoom from "../../components/StudyRoom";
 import {StaticImageData} from "next/image";
 import { useRouter } from "next/router"
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { useRecoilValue } from "recoil"
 import { studyRoomState } from "../../recoil"
@@ -37,16 +37,11 @@ const MainContainer = () => {
         router.push("/create")  
     }
 
-    const playingControl = (state:playingType) => {
-        console.log(state.played);
-        console.log(state.playedSeconds);
-        console.log(state.loaded);
-        console.log(state.loadedSeconds);
-        
-        
-        if (hostVideo.current) {
-            hostVideo.current.seekTo(0)
-        }
+    const playingControl = (state:playingType) => {        
+        console.log(state);
+        // if (hostVideo.current) {
+        //     hostVideo.current.seekTo(0)
+        // }
     }
 
     return (
@@ -58,7 +53,8 @@ const MainContainer = () => {
                     playing={isPlaying}
                     onProgress={playingControl}
                     width={942} 
-                    height={530}/> 
+                    height={530}
+                    muted={true}/> 
                 <S.InfoContainer>
                     <S.Title>dknld</S.Title>
                     <div>dknld</div>
