@@ -41,8 +41,11 @@ const MainContainer = () => {
     }
 
     const playingControl = (state:playingType) => {        
-        if (hostVideo.current && state.played >= 0.1) {
-            hostVideo.current.seekTo(0)
+        // if (hostVideo.current && state.played >= 0.1) {
+        //     hostVideo.current.seekTo(0)
+        // }
+        if (state.played >= 0.1) {
+            console.log("sdflsdklfnsdklfnsklfklsdnklsnvkls");
         }
     }
 
