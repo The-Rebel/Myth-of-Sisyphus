@@ -52,6 +52,10 @@ const MainContainer = () => {
         // and set data
     })
 
+    const onNext = (nextSlide: ()=>void) => {
+        nextSlide()
+    }
+
     return (
         <S.MainContainer>
             <S.VideoContainer>
@@ -75,8 +79,6 @@ const MainContainer = () => {
              </S.InfoContainer>
          </S.PreviewContainer> 
          : 
-         <S.NotPreviewContainer>
-            <div>recommendation studyroom here</div>
             <Carousel
                 dragging={false}
                 renderCenterLeftControls={({ previousSlide }) => (
@@ -85,32 +87,28 @@ const MainContainer = () => {
                     </div>
                   )}
                   renderCenterRightControls={({ nextSlide }) => (
-                    <div onClick={nextSlide}>
+                    <div onClick={() => onNext(nextSlide)}>
                       <Image src={NextArrow} alt="next arrow" />
                     </div>
                   )}
                 >
                 {RecStudyRoom.map((rec) => {
                     return <S.SliderItemsOuter key={rec.study_room_id}>
-                        <ReactPlayer 
-                         url={rec.video_url}
-                         playing={!isPlaying}
-                         width={942} 
-                         height={530}
-                         muted={true}
-                         loop={true}/> 
+                            <ReactPlayer 
+                             url={rec.video_url}
+                             playing={!isPlaying}
+                             width={800} 
+                             height={450}
+                             muted={true}
+                             loop={true}/> 
                          <S.InfoContainer>
+                            <S.RecComment>추천하는 스터디룸</S.RecComment>
                             <S.Title>{rec.study_room_name}</S.Title>
-                            <S.Description>{rec.description}</S.Description>
-                            <S.Nickname>
-                                {rec.nickname}
-                                <S.Introduce>님의 스터디룸</S.Introduce>
-                            </S.Nickname>
                          </S.InfoContainer>
                     </S.SliderItemsOuter>;
                 })} 
             </Carousel>
-         </S.NotPreviewContainer> }
+          }
          </S.VideoContainer>
             
             <S.StudyRoomContainer>

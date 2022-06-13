@@ -84,17 +84,19 @@ export const Introduce = styled.div`
     align-self: flex-end;
 ` 
 
-export const NotPreviewContainer = styled.section`
+export const SliderItemsOuter = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     height: 590px;
 `
 
-export const SliderItemsOuter = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-`
-
 export const VideoContainer = styled.div`
     margin-right: 100px;
+`
+
+export const RecComment = styled.div`
+    font-size: 19px;
 `
