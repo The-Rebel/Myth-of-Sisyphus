@@ -77,7 +77,7 @@ const MainContainer = () => {
                      <S.Introduce>님의 스터디룸</S.Introduce>
                  </S.Nickname>
              </S.InfoContainer>
-         </S.PreviewContainer> 
+         </S.PreviewContainer>
          : 
             <Carousel
                 dragging={false}
@@ -97,6 +97,7 @@ const MainContainer = () => {
                             <ReactPlayer 
                              url={rec.video_url}
                              playing={!isPlaying}
+                             onProgress={playingControl}
                              width={800} 
                              height={450}
                              muted={true}
