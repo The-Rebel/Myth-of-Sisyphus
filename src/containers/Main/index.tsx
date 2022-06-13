@@ -41,10 +41,9 @@ const MainContainer = () => {
     }
 
     const playingControl = (state:playingType) => {        
-        console.log(state);
-        // if (hostVideo.current) {
-        //     hostVideo.current.seekTo(0)
-        // }
+        if (hostVideo.current && state.played >= 0.1) {
+            hostVideo.current.seekTo(0)
+        }
     }
 
     useEffect(() => {
@@ -90,13 +89,15 @@ const MainContainer = () => {
                     <div onClick={() => onNext(nextSlide)}>
                       <Image src={NextArrow} alt="next arrow" />
                     </div>
-                  )}
+                  )} 
                 >
                 {RecStudyRoom.map((rec) => {
                     return <S.SliderItemsOuter key={rec.study_room_id}>
                             <ReactPlayer 
                              url={rec.video_url}
+                             ref={hostVideo}
                              playing={!isPlaying}
+                             controls={true}
                              onProgress={playingControl}
                              width={800} 
                              height={450}
