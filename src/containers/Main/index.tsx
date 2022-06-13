@@ -45,7 +45,7 @@ const MainContainer = () => {
         //     hostVideo.current.seekTo(0)
         // }
         if (state.played >= 0.1) {
-            console.log("sdflsdklfnsdklfnsklfklsdnklsnvkls");
+            hostVideo.current?.seekTo(0.0, "seconds")
         }
     }
 
