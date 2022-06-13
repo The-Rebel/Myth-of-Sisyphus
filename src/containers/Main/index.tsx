@@ -106,8 +106,7 @@ const MainContainer = () => {
                              onProgress={playingControl}
                              width={800} 
                              height={450}
-                             muted={true}
-                             loop={true}/> 
+                             muted={true}/> 
                          <S.InfoContainer>
                             <S.RecComment>추천하는 스터디룸</S.RecComment>
                             <S.Title>{rec.study_room_name}</S.Title>
