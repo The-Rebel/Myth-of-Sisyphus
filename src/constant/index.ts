@@ -178,3 +178,33 @@ export const ReadingRecordList = [
         name: "닉네임7"
     },
 ]
+
+export const RecStudyRoom = [
+    {
+        study_room_id: 6,
+        user_id: 1,
+        nickname: "limyeonsang",
+        video_url: "https://www.youtube.com/watch?v=Tg9i4mQ2hRQ&ab_channel=MBCNEWS",
+        thumbnail: Thumbnail
+        ,study_room_name: "같이 봐요 요구르트 트름 늠름",
+        description: "나도 4일만 일하고 학교가고 싶다.." 
+    },
+    {
+        study_room_id: 12,
+        user_id: 3,
+        nickname: "추천해주세요",
+        video_url: "https://www.youtube.com/watch?v=cz_97BtzDTI&ab_channel=%EB%B6%81%ED%88%B0",
+        thumbnail: Thumbnail
+        ,study_room_name: "항상 당신 곁에 머~물~고 싶지만",
+        description: "이건뭐야" 
+    },
+    {
+        study_room_id: 20,
+        user_id: 12,
+        nickname: "이건진짜보셔야해요",
+        video_url: "https://www.youtube.com/watch?v=uQkkS7aoQn0&ab_channel=tvN",
+        thumbnail: Thumbnail
+        ,study_room_name: "이 슬픔을 알랑가모르것어요",
+        description: "어어워우어 워우어ㅓㅓ" 
+    },
+]

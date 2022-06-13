@@ -1,13 +1,16 @@
-import {StudyRoomList} from "../../constant";
+import {StudyRoomList, RecStudyRoom} from "../../constant";
 import * as S from "./styles";
 import StudyRoom from "../../components/StudyRoom";
 import {StaticImageData} from "next/image";
 import { useRouter } from "next/router"
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import {NextArrow, PrevArrow} from "../../assets/md"
 
 import { useRecoilValue } from "recoil"
 import { studyRoomState } from "../../recoil"
 import ReactPlayer from "react-player"
+import Carousel from "nuka-carousel";
 
 export interface StudyRoomResType {
     study_room_id: number;
@@ -44,8 +47,14 @@ const MainContainer = () => {
         // }
     }
 
+    useEffect(() => {
+        // res -> recommendation studyrooms
+        // and set data
+    })
+
     return (
         <S.MainContainer>
+            <S.VideoContainer>
             { isClick ? 
              <S.PreviewContainer isClick={isClick}>
              <ReactPlayer 
@@ -68,7 +77,41 @@ const MainContainer = () => {
          : 
          <S.NotPreviewContainer>
             <div>recommendation studyroom here</div>
+            <Carousel
+                dragging={false}
+                renderCenterLeftControls={({ previousSlide }) => (
+                    <div onClick={previousSlide}>
+                      <Image src={PrevArrow} alt="previous arrow" />
+                    </div>
+                  )}
+                  renderCenterRightControls={({ nextSlide }) => (
+                    <div onClick={nextSlide}>
+                      <Image src={NextArrow} alt="next arrow" />
+                    </div>
+                  )}
+                >
+                {RecStudyRoom.map((rec) => {
+                    return <S.SliderItemsOuter key={rec.study_room_id}>
+                        <ReactPlayer 
+                         url={rec.video_url}
+                         playing={!isPlaying}
+                         width={942} 
+                         height={530}
+                         muted={true}
+                         loop={true}/> 
+                         <S.InfoContainer>
+                            <S.Title>{rec.study_room_name}</S.Title>
+                            <S.Description>{rec.description}</S.Description>
+                            <S.Nickname>
+                                {rec.nickname}
+                                <S.Introduce>님의 스터디룸</S.Introduce>
+                            </S.Nickname>
+                         </S.InfoContainer>
+                    </S.SliderItemsOuter>;
+                })} 
+            </Carousel>
          </S.NotPreviewContainer> }
+         </S.VideoContainer>
             
             <S.StudyRoomContainer>
                 <S.Label>스터디룸</S.Label>

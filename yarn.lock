@@ -1780,6 +1780,11 @@ next@^12.1.6:
     "@next/swc-win32-ia32-msvc" "12.1.6"
     "@next/swc-win32-x64-msvc" "12.1.6"
 
+nuka-carousel@^5.1.1:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/nuka-carousel/-/nuka-carousel-5.1.1.tgz#7467b67de0ee67c38d06b1577ab7de72a766469f"
+  integrity sha512-pWUp1CxFovKQ2uF7n0U6gUjmp6RjYHxp2qYb5pENi2G3jxV231lFy53MLv7U9pnz/H1gk4I3tszKp9RAqtKjbA==
+
 object-assign@^4.1.1:
   version "4.1.1"
   resolved "https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz"

@@ -33,11 +33,6 @@ export const Rooms = styled.div`
   }
 `
 
-export const NotPreviewContainer = styled.section`
-    width: 100%;
-    height: 590px;
-`
-
 export const PreviewContainer = styled.section<{isClick:boolean}>`
     display: flex;
     align-items: center;
@@ -50,7 +45,6 @@ export const PreviewContainer = styled.section<{isClick:boolean}>`
     ${props => props.isClick && css`
         opacity: 1; 
         visibility: visible;
-        /* transition-delay: .5s; */
     `};
 `
 
@@ -63,7 +57,7 @@ export const InfoContainer = styled.div`
 export const Title = styled.div`
     font-size: 35px;
     font-weight: bold;
-    width: 422px;
+    width: 650px;
     height: 30px;
 `
 
@@ -89,3 +83,18 @@ export const Introduce = styled.div`
     vertical-align: bottom;
     align-self: flex-end;
 ` 
+
+export const NotPreviewContainer = styled.section`
+    width: 100%;
+    height: 590px;
+`
+
+export const SliderItemsOuter = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`
+
+export const VideoContainer = styled.div`
+    margin-right: 100px;
+`
