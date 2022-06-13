@@ -42,7 +42,7 @@ const MainContainer = () => {
 
     const playingControl = (state:playingType) => {        
         if (!hostVideo.current) return 
-        console.log(hostVideo.current.getCurrentTime());
+    
 
         if (state.played >= 0.1) {
             hostVideo.current.seekTo(0, "seconds")
@@ -66,7 +66,7 @@ const MainContainer = () => {
             { isClick ? 
              <S.PreviewContainer isClick={isClick}>
              <ReactPlayer 
-                 ref={hostVideo}
+                //  ref={hostVideo}
                  url={studyRoom.video_url} 
                  playing={isPlaying}
                  onProgress={playingControl}
@@ -102,14 +102,15 @@ const MainContainer = () => {
                              url={rec.video_url}
                              ref={hostVideo}
                              playing={!isPlaying}
-                             controls={true}
                              onProgress={playingControl}
+                             controls={true}
                              width={800} 
                              height={450}
-                             muted={true}/> 
+                             muted={true} /> 
                          <S.InfoContainer>
                             <S.RecComment>추천하는 스터디룸</S.RecComment>
                             <S.Title>{rec.study_room_name}</S.Title>
+                            <button onClick={() => hostVideo.current?.seekTo(0, "seconds")}>dlsnlkfn</button>
                          </S.InfoContainer>
                     </S.SliderItemsOuter>;
                 })} 
