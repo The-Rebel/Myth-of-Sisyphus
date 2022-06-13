@@ -1,10 +1,18 @@
-import {StudyRoomList} from "../../constant";
+import {StudyRoomList, RecStudyRoom} from "../../constant";
 import * as S from "./styles";
 import StudyRoom from "../../components/StudyRoom";
 import {StaticImageData} from "next/image";
 import { useRouter } from "next/router"
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
+import {NextArrow, PrevArrow} from "../../assets/md"
 
-export interface StudyRoomPropsType {
+import { useRecoilValue } from "recoil"
+import { studyRoomState } from "../../recoil"
+import ReactPlayer from "react-player"
+import Carousel from "nuka-carousel";
+
+export interface StudyRoomResType {
     study_room_id: number;
     user_id?: number;
     nickname: string;
@@ -14,69 +22,117 @@ export interface StudyRoomPropsType {
     description: string;
 }
 
+interface playingType {
+    played: number;
+    playedSeconds: number;
+    loaded: number;
+    loadedSeconds: number
+}
+
 const MainContainer = () => {
     const router = useRouter()
+    const [isClick, setIsClick] = useState<boolean>(false)
+    const [isPlaying, setIsPlaying] = useState<boolean>(true)
+    const studyRoom = useRecoilValue(studyRoomState)
+    const hostVideo = useRef<ReactPlayer>(null)
 
     const onCreateRoom = () => {
-        router.push("/create")
+        router.push("/create")  
+    }
+
+    const playingControl = (state:playingType) => {        
+        console.log(state);
+        // if (hostVideo.current) {
+        //     hostVideo.current.seekTo(0)
+        // }
+    }
+
+    useEffect(() => {
+        // res -> recommendation studyrooms
+        // and set data
+    })
+
+    const onNext = (nextSlide: ()=>void) => {
+        nextSlide()
     }
 
     return (
         <S.MainContainer>
-            <S.RoomContainerName top="">내가 시청하던 영상</S.RoomContainerName>
-            <S.Outer>
-                <S.RoomsContainer>
-                    {StudyRoomList.map((room) => (
-                        <StudyRoom
-                            key={room.study_room_id}
-                            study_room_id={room.study_room_id}
-                            nickname={room.nickname}
-                            video_url={room.video_url}
-                            thumbnail={room.thumbnail}
-                            study_room_name={room.study_room_name}
-                            description={room.description}
-                        ></StudyRoom>
-                    ))}
-                </S.RoomsContainer>
-            </S.Outer>
-            <S.RoomContainerName top="90px">
-                내가 시청하던 영상
-            </S.RoomContainerName>
-            <S.Outer>
-            <button onClick={onCreateRoom}>방생성하기</button> {/*ㅇ내우ㅏㄹ나ㅣ루ㅏ니루ㅏㅣㄴ루ㅏㅣㄴㅇ루ㅏㅣㄴ우라ㅣ눙라ㅣㄴ우라ㅣㅜ나ㅣ루ㅏ니뤃낟후ㅏㅣㅡ햐ㅐ주햐ㅐ누하ㅣ두햐ㅐ두아ㅣㅠ 자ㅠㅜㄱ듀ㅑㅐ */}
-
-                <S.RoomsContainer>
-                    {StudyRoomList.map((room) => (
-                        <StudyRoom
-                            key={room.study_room_id}
-                            study_room_id={room.study_room_id}
-                            nickname={room.nickname}
-                            video_url={room.video_url}
-                            thumbnail={room.thumbnail}
-                            study_room_name={room.study_room_name}
-                            description={room.description}
-                        ></StudyRoom>
-                    ))}
-                </S.RoomsContainer>
-            </S.Outer>
-            <S.RoomContainerName top="90px">
-                내가 시청하던 영상
-            </S.RoomContainerName>
-            <S.Outer>
-                <S.RoomsContainer>
-                    {StudyRoomList.map((room) => (
-                        <StudyRoom
-                            key={room.study_room_id}
-                            study_room_id={room.study_room_id}
-                            nickname={room.nickname}
-                            video_url={room.video_url}
-                            thumbnail={room.thumbnail}
-                            study_room_name={room.study_room_name}
-                            description={room.description}
-                        ></StudyRoom>
-                    ))}
-                </S.RoomsContainer>
-            </S.Outer>
+            <S.VideoContainer>
+            { isClick ? 
+             <S.PreviewContainer isClick={isClick}>
+             <ReactPlayer 
+                 ref={hostVideo}
+                 url={studyRoom.video_url} 
+                 playing={isPlaying}
+                 onProgress={playingControl}
+                 width={942} 
+                 height={530}
+                 muted={true}/> 
+             <S.InfoContainer>
+                 <S.Title>{studyRoom.study_room_name}</S.Title>
+                 <S.Description>{studyRoom.description}</S.Description>
+                 <S.Nickname>
+                     {studyRoom.nickname}
+                     <S.Introduce>님의 스터디룸</S.Introduce>
+                 </S.Nickname>
+             </S.InfoContainer>
+         </S.PreviewContainer>
+         : 
+            <Carousel
+                dragging={false}
+                renderCenterLeftControls={({ previousSlide }) => (
+                    <div onClick={previousSlide}>
+                      <Image src={PrevArrow} alt="previous arrow" />
+                    </div>
+                  )}
+                  renderCenterRightControls={({ nextSlide }) => (
+                    <div onClick={() => onNext(nextSlide)}>
+                      <Image src={NextArrow} alt="next arrow" />
+                    </div>
+                  )}
+                >
+                {RecStudyRoom.map((rec) => {
+                    return <S.SliderItemsOuter key={rec.study_room_id}>
+                            <ReactPlayer 
+                             url={rec.video_url}
+                             playing={!isPlaying}
+                             onProgress={playingControl}
+                             width={800} 
+                             height={450}
+                             muted={true}
+                             loop={true}/> 
+                         <S.InfoContainer>
+                            <S.RecComment>추천하는 스터디룸</S.RecComment>
+                            <S.Title>{rec.study_room_name}</S.Title>
+                         </S.InfoContainer>
+                    </S.SliderItemsOuter>;
+                })} 
+            </Carousel>
+          }
+         </S.VideoContainer>
+            
+            <S.StudyRoomContainer>
+                <S.Label>스터디룸</S.Label>
+                <S.Outer>
+                    <S.Rooms>
+                        {StudyRoomList.map((room) => (
+                            <StudyRoom
+                                key={room.study_room_id}
+                                study_room_id={room.study_room_id}
+                                nickname={room.nickname}
+                                video_url={room.video_url}
+                                thumbnail={room.thumbnail}
+                                study_room_name={room.study_room_name}
+                                description={room.description}
+                                setIsClick={setIsClick}
+                                setIsPlaying={setIsPlaying}
+                            ></StudyRoom>
+                        ))}
+                    </S.Rooms>
+                {/* <button onClick={onCreateRoom}>방생성하기</button>*/}
+                </S.Outer>
+            </S.StudyRoomContainer>
         </S.MainContainer>
     );
 };

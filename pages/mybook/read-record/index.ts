@@ -1,0 +1,1 @@
+export { ReadRecordContainer as default } from "../../../src/containers"

@@ -11,7 +11,6 @@ const LandingContainer = () => {
 
     useEffect(() => {
         window.addEventListener("scroll", updateScroll);
-        console.log(scrollPosition);
 
         return () => {
             window.removeEventListener("scroll", updateScroll);

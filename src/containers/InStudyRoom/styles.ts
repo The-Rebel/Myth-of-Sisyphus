@@ -73,7 +73,7 @@ export const Nickname = styled.div`
     font-size: 25px;
     font-weight: bold;
     display: flex;
-    justify-content: row;
+    column-gap: 10px;
 `
 
 export const Introduce = styled.div`
