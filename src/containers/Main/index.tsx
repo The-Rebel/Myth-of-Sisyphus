@@ -9,7 +9,7 @@ import {NextArrow, PrevArrow} from "../../assets/md"
 
 import { useRecoilValue } from "recoil"
 import { studyRoomState } from "../../recoil"
-import ReactPlayer from "react-player"
+import ReactPlayer from "react-player/youtube"
 import Carousel from "nuka-carousel";
 
 export interface StudyRoomResType {
@@ -41,14 +41,11 @@ const MainContainer = () => {
     }
 
     const playingControl = (state:playingType) => {        
-        // if (hostVideo.current && state.played >= 0.1) {
-        //     hostVideo.current.seekTo(0)
-        // }
-        console.log(hostVideo.current?.getCurrentTime());
-         
+        if (!hostVideo.current) return 
+        console.log(hostVideo.current.getCurrentTime());
 
         if (state.played >= 0.1) {
-            hostVideo.current?.seekTo(1.0, "seconds")
+            hostVideo.current.seekTo(0, "seconds")
             console.log("dnskfnklsnfklsn");
             
         }
