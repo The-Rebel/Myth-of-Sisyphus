@@ -2,15 +2,13 @@ import styled from "@emotion/styled";
 
 export const StudyRoomContainer = styled.section`
     margin-top: 84px;
+    display: flex;
+    justify-content: center;
 `
 
 export const ContentsContainer = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
     width: 100vw;
     height: calc(100vh - 84px);
-    overflow-y: hidden;
 `
 
 export const Inner = styled.div`
@@ -19,7 +17,6 @@ export const Inner = styled.div`
 `
 
 export const VideoContainer = styled.div`
-    position: relative;
     margin-right: 24px;
 `
 
