@@ -10,6 +10,9 @@ import { useRouter } from "next/router"
 import Carousel from "nuka-carousel";
 import ResponsivePlayer from "../../components/ResponsivePlayer"
 
+import Image from "next/image"
+import {NextArrow, PrevArrow} from "../../assets/md"
+
 
 export interface EssayListType {
     user_id?: number,
@@ -33,7 +36,18 @@ const InStudyRoomContainer = () => {
     return (
         <S.StudyRoomContainer>
             <S.ContentsContainer>
-                <Carousel dragging={false}>
+                <Carousel 
+                    dragging={false}
+                    renderCenterLeftControls={({ previousSlide }) => (
+                        <div onClick={previousSlide}>
+                          <Image src={PrevArrow} alt="previous arrow" />
+                        </div>
+                      )}
+                      renderCenterRightControls={({ nextSlide }) => (
+                        <div onClick={nextSlide}>
+                          <Image src={NextArrow} alt="next arrow" />
+                        </div>
+                      )} >
                     <ResponsivePlayer url={studyRoom.video_url}/>
                     <S.InfoContainer>
                         <S.TitleAndNickname>
@@ -46,7 +60,6 @@ const InStudyRoomContainer = () => {
                         <S.Description>{studyRoom.description}</S.Description>
                     </S.InfoContainer> 
                 </Carousel>
-                   
                 <S.Inner>
                     <S.EssayLabel>
                         에세이 목록
