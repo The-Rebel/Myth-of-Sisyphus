@@ -36,6 +36,7 @@ const ResponsivePlayer = ({url, isPlaying}:PropsType) => {
             height='100%'
             playing={isPlaying}
             controls={true}
+            loop={true}
         />
         // </S.Outer>
     )
