@@ -25,7 +25,6 @@ export interface StudyRoomResType {
 
 const MainContainer = () => {
     const router = useRouter()
-    const [index, setIndex] = useState<number>(0)
     const [isClick, setIsClick] = useState<boolean>(false)
     const [isPlaying, setIsPlaying] = useState<boolean>(true)
     const [isPlayArr, setIsPlayArr] = useState<boolean[]>(Array(RecStudyRoom.length).fill(false))
@@ -36,6 +35,7 @@ const MainContainer = () => {
     }
 
     const onEnterStudyRoom = () => {
+        // 여기에 추천된 study_room_id를 이용해서 그 스터디룸의 정보를 가져오는 api가 필요할 거 같습니다. 
         router.push("studyroom")
     }
 
@@ -44,13 +44,7 @@ const MainContainer = () => {
         // and set data
     })
 
-    const onHandlePrevNext = (f: ()=>void) => {
-        f()
-        // setIsPlayArr(isPlayArr => isPlayArr.map((item, idx) => idx !== index ? true : item))
-    }
-
     const changSlide = (index:number) => {
-        setIndex(index)
         setIsPlayArr(isPlayArr => isPlayArr.map((item, idx) => idx === index ? true : false))
     }
 
@@ -80,12 +74,12 @@ const MainContainer = () => {
                 afterSlide={changSlide}
                 dragging={false}
                 renderCenterLeftControls={({ previousSlide }) => (
-                    <div onClick={() => onHandlePrevNext(previousSlide)}>
+                    <div onClick={previousSlide}>
                       <Image src={PrevArrow} alt="previous arrow" />
                     </div>
                   )}
                   renderCenterRightControls={({ nextSlide }) => (
-                    <div onClick={() => onHandlePrevNext(nextSlide)}>
+                    <div onClick={nextSlide}>
                       <Image src={NextArrow} alt="next arrow" />
                     </div>
                   )} 

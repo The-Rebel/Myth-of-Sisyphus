@@ -21,7 +21,7 @@ const InStudyRoomContainer = () => {
     const router = useRouter()
 
     // useEffect(() => {
-    //     // 스터디룸 목록 요청 받기.
+    //     // 에세이 목록 요청 받기.
     // })
 
     const onWriteEssay = () => {
