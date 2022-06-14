@@ -22,42 +22,42 @@ export const VideoContainer = styled.div`
 `
 
 export const EssayLabel = styled.label`
+    position: relative;
+    margin-top: 5%;
     width: 100%;
     height: 30px;
     font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content :center;
 `
 
 export const EssayContainer = styled.div`
-    /* z-index: 1; */
     padding: 10px;
     row-gap: 15px;
-    width: 100%;
-    height: 100%;
     background-color: #F5F5F5;
     display: block;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-        display: none;
-    }
 `
 
 export const CreateButton = styled.button`
+    position: absolute;
     margin-left: 30px;
     cursor: pointer;
+    right: 0px;
 `
 
 export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin-top: 23px;
+    padding: 18px;
 `
 
 export const TitleAndNickname = styled.div`
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -65,7 +65,7 @@ export const TitleAndNickname = styled.div`
 
 export const Description = styled.div`
     font-size: 18px;
-    width: 1200px;
+    width: 100%;
     margin-top: 30px;
 `
 export const Title = styled.div`
