@@ -10,6 +10,7 @@ export const ContentsContainer = styled.div`
     justify-content: center;
     width: 100vw;
     height: calc(100vh - 84px);
+    overflow-y: hidden;
 `
 
 export const Inner = styled.div`
@@ -18,15 +19,21 @@ export const Inner = styled.div`
 `
 
 export const VideoContainer = styled.div`
+    position: relative;
     margin-right: 24px;
 `
 
+export const EssayLabel = styled.label`
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+`
+
 export const EssayContainer = styled.div`
-    position: relative;
     /* z-index: 1; */
     padding: 10px;
     row-gap: 15px;
-    width: 25%;
+    width: 100%;
     height: 100%;
     background-color: #F5F5F5;
     display: block;
@@ -39,14 +46,9 @@ export const EssayContainer = styled.div`
     }
 `
 
-export const CreateButtonContainer = styled.div`
-
-`
-
 export const CreateButton = styled.button`
-    position: absolute;
-    right: 20px;
-    bottom: 10px;
+    margin-left: 30px;
+    cursor: pointer;
 `
 
 export const InfoContainer = styled.div`

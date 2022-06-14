@@ -46,6 +46,11 @@ const InStudyRoomContainer = () => {
                         <S.Description>{studyRoom.description}</S.Description>
                     </S.InfoContainer> 
                 </S.Inner>
+                <S.Inner>
+                    <S.EssayLabel>
+                        에세이 목록
+                        <S.CreateButton onClick={onWriteEssay}>생성하귀</S.CreateButton>
+                    </S.EssayLabel>
                 <S.EssayContainer>
                     { EssayList.map((essay) => (
                         <Essay 
@@ -54,8 +59,8 @@ const InStudyRoomContainer = () => {
                             title={essay.title} 
                             content={essay.content}/>
                     )) }
-                    <S.CreateButton onClick={onWriteEssay}>생성하귀</S.CreateButton>
                 </S.EssayContainer>
+                </S.Inner>
             </S.ContentsContainer>
         </S.StudyRoomContainer>
     )
