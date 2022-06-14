@@ -5,7 +5,7 @@ export const StudyRoomList = [
         study_room_id: 1,
         user_id: 1,
         nickname: "limyeonsang",
-        video_url: "https://www.youtube.com/watch?v=o6o52qoL-4w&ab_channel=%EC%98%88%EB%8F%84TV",
+        video_url: "https://www.youtube.com/watch?v=uQkkS7aoQn0&ab_channel=tvN",
         thumbnail: Thumbnail
         ,study_room_name: "예도tv 같이 봐요",
         description: "칸트 - 바깥의 상이 머리속으로 들어왔는데 오성에 의해 정리작업 되기 전의 상태, 헤겔 - 절대정신에서 종교와 예술의 단계, 후설 - 바깥에 있는 사물과 인식의 상의 연결된 상태" 

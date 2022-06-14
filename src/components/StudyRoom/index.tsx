@@ -42,12 +42,12 @@ const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_n
         setIsPlaying(false)
 
         setIsClick1(false)
-    }
+    } 
 
     return (
         <S.RoomContainer 
             isClick={isClick1}
-            onClick={onThumbClick} 
+            onClick={onThumbClick}
             onMouseLeave={onThumbLeave} >
             <S.HoverRoomContainer className="items">
                 {/* <S.Title>{study_room_name}</S.Title> */}

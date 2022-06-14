@@ -11,6 +11,7 @@ import { useRecoilValue } from "recoil"
 import { studyRoomState } from "../../recoil"
 import ReactPlayer from "react-player/youtube"
 import Carousel from "nuka-carousel";
+import ResponsivePlayer from "../../components/ResponsivePlayer";
 
 export interface StudyRoomResType {
     study_room_id: number;
@@ -22,34 +23,19 @@ export interface StudyRoomResType {
     description: string;
 }
 
-interface playingType {
-    played: number;
-    playedSeconds: number;
-    loaded: number;
-    loadedSeconds: number
-}
+
 
 const MainContainer = () => {
     const router = useRouter()
     const [isClick, setIsClick] = useState<boolean>(false)
     const [isPlaying, setIsPlaying] = useState<boolean>(true)
     const studyRoom = useRecoilValue(studyRoomState)
-    const hostVideo = useRef<ReactPlayer>(null)
 
     const onCreateRoom = () => {
         router.push("/create")  
     }
 
-    const playingControl = (state:playingType) => {        
-        if (!hostVideo.current) return 
-    
 
-        if (state.played >= 0.1) {
-            hostVideo.current.seekTo(0, "seconds")
-            console.log("dnskfnklsnfklsn");
-            
-        }
-    }
 
     useEffect(() => {
         // res -> recommendation studyrooms
@@ -65,14 +51,13 @@ const MainContainer = () => {
             <S.VideoContainer>
             { isClick ? 
              <S.PreviewContainer isClick={isClick}>
-             <ReactPlayer 
-                //  ref={hostVideo}
+             <ReactPlayer  
                  url={studyRoom.video_url} 
                  playing={isPlaying}
-                 onProgress={playingControl}
                  width={942} 
                  height={530}
-                 muted={true}/> 
+                 muted={true}
+                 loop={true} />  
              <S.InfoContainer>
                  <S.Title>{studyRoom.study_room_name}</S.Title>
                  <S.Description>{studyRoom.description}</S.Description>
@@ -98,19 +83,13 @@ const MainContainer = () => {
                 >
                 {RecStudyRoom.map((rec) => {
                     return <S.SliderItemsOuter key={rec.study_room_id}>
-                            <ReactPlayer 
-                             url={rec.video_url}
-                             ref={hostVideo}
-                             playing={!isPlaying}
-                             onProgress={playingControl}
-                             controls={true}
-                             width={800} 
-                             height={450}
-                             muted={true} /> 
+                            <ResponsivePlayer 
+                                url={rec.video_url}
+                                isPlaying={!isPlaying}
+                            />
                          <S.InfoContainer>
                             <S.RecComment>추천하는 스터디룸</S.RecComment>
                             <S.Title>{rec.study_room_name}</S.Title>
-                            <button onClick={() => hostVideo.current?.seekTo(0, "seconds")}>dlsnlkfn</button>
                          </S.InfoContainer>
                     </S.SliderItemsOuter>;
                 })} 
