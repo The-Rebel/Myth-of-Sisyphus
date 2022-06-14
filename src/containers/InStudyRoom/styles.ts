@@ -7,7 +7,7 @@ export const StudyRoomContainer = styled.section`
 `
 
 export const ContentsContainer = styled.div`
-    width: 100vw;
+    width: 73vw;
     height: calc(100vh - 84px);
 `
 
@@ -17,7 +17,8 @@ export const Inner = styled.div`
 `
 
 export const VideoContainer = styled.div`
-    margin-right: 24px;
+    width: 1000px;
+    height: 900px;
 `
 
 export const EssayLabel = styled.label`

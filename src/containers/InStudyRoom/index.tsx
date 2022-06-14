@@ -8,6 +8,7 @@ import Essay from "../../components/Essay"
 import { useEffect } from "react"
 import { useRouter } from "next/router"
 import Carousel from "nuka-carousel";
+import ResponsivePlayer from "../../components/ResponsivePlayer"
 
 
 export interface EssayListType {
@@ -33,9 +34,7 @@ const InStudyRoomContainer = () => {
         <S.StudyRoomContainer>
             <S.ContentsContainer>
                 <Carousel dragging={false}>
-                    <S.VideoContainer>
-                        <ReactPlayer url={studyRoom.video_url} controls={true} width={1200} height={674}/>
-                    </S.VideoContainer>
+                    <ResponsivePlayer url={studyRoom.video_url}/>
                     <S.InfoContainer>
                         <S.TitleAndNickname>
                             <S.Title>{studyRoom.study_room_name}</S.Title>
