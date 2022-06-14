@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 
 export const StudyRoomContainer = styled.section`
+    width: 100%;
     margin-top: 84px;
     display: flex;
     flex-direction: column;
@@ -19,11 +20,12 @@ export const VideoContainer = styled.div`
 export const EssayContainer = styled.div`
     padding: 10px;
     row-gap: 15px;
-    width: 416px;
-    height: 720px;
+    width: 25%;
+    height: 675px;
     background-color: #F5F5F5;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     overflow-y: scroll;
     &::-webkit-scrollbar {
@@ -51,33 +53,32 @@ export const InfoContainer = styled.div`
 `
 
 export const TitleAndNickname = styled.div`
+    width: 90%;
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 1720px;
-    height: 58px;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
 `
 
 export const Description = styled.div`
-    font-size: 23px;
+    font-size: 18px;
     width: 1720px;
-    margin-top: 18px;
+    margin-top: 30px;
 `
 export const Title = styled.div`
-    font-size: 45px;
+    font-size: 30px;
     font-weight: bold;
 `
 
 export const Nickname = styled.div`
-    font-size: 25px;
+    margin-top: 12px;
+    font-size: 20px;
     font-weight: bold;
     display: flex;
     column-gap: 10px;
 `
 
 export const Introduce = styled.div`
-    font-size: 20px;
+    font-size: 15px;
     font-weight: bold;
     vertical-align: bottom;
     align-self: flex-end;

@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Essay = styled.div`
-    width: 400px;
+    width: 100%;
     height: 150px;
     flex-shrink: 0;
     background-color: white;
@@ -25,8 +25,8 @@ export const Title = styled.div`
 
 export const Content = styled.div`
     font-size: 15px;
-    width: 380px;
-    height: 54px;
+    width: 430px;
+    height: 43px;
     overflow-y: hidden;
     overflow-x: hidden;
     margin-top: 8px;

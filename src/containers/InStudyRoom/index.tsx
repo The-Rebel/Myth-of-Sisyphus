@@ -32,7 +32,7 @@ const InStudyRoomContainer = () => {
         <S.StudyRoomContainer>
             <S.ContentsContainer>
                 <S.VideoContainer>
-                    <ReactPlayer url={studyRoom.video_url} controls={true} width={1280} height={720} />
+                    <ReactPlayer url={studyRoom.video_url} controls={true} width={1280} height={675} />
                 </S.VideoContainer>
                 <S.EssayContainer>
                     { EssayList.map((essay) => (
