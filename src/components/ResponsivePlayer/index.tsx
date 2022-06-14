@@ -3,8 +3,9 @@ import ReactPlayer from "react-player"
 import * as S from "./styles"
 
 interface PropsType {
-    url: string,
-    isPlaying: boolean
+    url: string
+    isPlaying: boolean[]
+    idx: number
 }
 
 interface playingType {
@@ -14,14 +15,12 @@ interface playingType {
     loadedSeconds: number
 }
 
-const ResponsivePlayer = ({url, isPlaying}:PropsType) => {
+const ResponsivePlayer = ({url, isPlaying, idx}:PropsType) => {
     const hostVideo = useRef<ReactPlayer>(null)
 
     const playingControl = (state:playingType) => {        
         if (state.played >= 0.1) {
-            hostVideo.current?.seekTo(0, "seconds")
-            console.log("dnskfnklsnfklsn");
-            
+            hostVideo.current?.seekTo(0, "seconds")            
         }
     }
 
@@ -34,8 +33,7 @@ const ResponsivePlayer = ({url, isPlaying}:PropsType) => {
             url={url}
             width='100%'
             height='100%'
-            playing={isPlaying}
-            controls={true}
+            playing={isPlaying[idx]}
             loop={true}
         />
         // </S.Outer>

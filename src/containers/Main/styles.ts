@@ -85,6 +85,9 @@ export const Introduce = styled.div`
 ` 
 
 export const SliderItemsOuter = styled.div`
+    /* position: relative;
+    padding-top: 56.25%; */
+
     display: flex;
     flex-direction: row;
     justify-content: center;

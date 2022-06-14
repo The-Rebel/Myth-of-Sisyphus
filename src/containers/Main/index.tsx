@@ -23,27 +23,31 @@ export interface StudyRoomResType {
     description: string;
 }
 
-
-
 const MainContainer = () => {
     const router = useRouter()
+    const [index, setIndex] = useState<number>(0)
     const [isClick, setIsClick] = useState<boolean>(false)
     const [isPlaying, setIsPlaying] = useState<boolean>(true)
+    const [isPlayArr, setIsPlayArr] = useState<boolean[]>(Array(RecStudyRoom.length).fill(false))
     const studyRoom = useRecoilValue(studyRoomState)
 
     const onCreateRoom = () => {
         router.push("/create")  
     }
 
-
-
     useEffect(() => {
         // res -> recommendation studyrooms
         // and set data
     })
 
-    const onNext = (nextSlide: ()=>void) => {
-        nextSlide()
+    const onHandlePrevNext = (f: ()=>void) => {
+        f()
+        // setIsPlayArr(isPlayArr => isPlayArr.map((item, idx) => idx !== index ? true : item))
+    }
+
+    const changSlide = (index:number) => {
+        setIndex(index)
+        setIsPlayArr(isPlayArr => isPlayArr.map((item, idx) => idx === index ? true : false))
     }
 
     return (
@@ -69,23 +73,25 @@ const MainContainer = () => {
          </S.PreviewContainer>
          : 
             <Carousel
+                afterSlide={changSlide}
                 dragging={false}
                 renderCenterLeftControls={({ previousSlide }) => (
-                    <div onClick={previousSlide}>
+                    <div onClick={() => onHandlePrevNext(previousSlide)}>
                       <Image src={PrevArrow} alt="previous arrow" />
                     </div>
                   )}
                   renderCenterRightControls={({ nextSlide }) => (
-                    <div onClick={() => onNext(nextSlide)}>
+                    <div onClick={() => onHandlePrevNext(nextSlide)}>
                       <Image src={NextArrow} alt="next arrow" />
                     </div>
                   )} 
                 >
-                {RecStudyRoom.map((rec) => {
+                {RecStudyRoom.map((rec, idx) => {
                     return <S.SliderItemsOuter key={rec.study_room_id}>
                             <ResponsivePlayer 
+                                idx={idx}
                                 url={rec.video_url}
-                                isPlaying={!isPlaying}
+                                isPlaying={isPlayArr}
                             />
                          <S.InfoContainer>
                             <S.RecComment>추천하는 스터디룸</S.RecComment>
@@ -111,7 +117,7 @@ const MainContainer = () => {
                                 study_room_name={room.study_room_name}
                                 description={room.description}
                                 setIsClick={setIsClick}
-                                setIsPlaying={setIsPlaying}
+                                setIsPlaying={setIsPlaying} 
                             ></StudyRoom>
                         ))}
                     </S.Rooms>
