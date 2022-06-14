@@ -52,9 +52,7 @@ const LandingContainer = () => {
                 </S.ItemContainer>
                 <S.LoginButton onClick={() => router.push("sign/signin")}>로그인</S.LoginButton>
             </S.Background>
-            <S.ImgContainer>
-                <Image src={Background} alt="background image"/>
-            </S.ImgContainer>
+                <Image src={Background} alt="background image" width={1920} height={966}/>
 
             <S.ServiceIntroContainer>
                 <S.SloganContainer>

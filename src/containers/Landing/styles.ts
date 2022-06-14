@@ -1,24 +1,17 @@
 import styled from "@emotion/styled";
 import { css } from "@emotion/react";
 
+export const LandingContainer = styled.div`
+`;
+
 export const Background = styled.div<{opacity:string}>`
     position: absolute;
     top: 0px;
     left: 0px;
     background-color:rgba(0, 0, 0, ${props => props.opacity});
     width: 100vw;
-    height: 100vh;
+    height: 966px;
     z-index: 10;
-`
-
-export const LandingContainer = styled.div`
-    margin-top: 60px;
-`;
-
-export const ImgContainer = styled.div`
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
 `
 
 export const ItemContainer = styled.div`
