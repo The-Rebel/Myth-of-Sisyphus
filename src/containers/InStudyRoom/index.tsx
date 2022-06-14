@@ -7,6 +7,11 @@ import { EssayList } from "../../constant"
 import Essay from "../../components/Essay"
 import { useEffect } from "react"
 import { useRouter } from "next/router"
+import Carousel from "nuka-carousel";
+import ResponsivePlayer from "../../components/ResponsivePlayer"
+
+import Image from "next/image"
+import {NextArrow, PrevArrow} from "../../assets/md"
 
 
 export interface EssayListType {
@@ -31,9 +36,35 @@ const InStudyRoomContainer = () => {
     return (
         <S.StudyRoomContainer>
             <S.ContentsContainer>
-                <S.VideoContainer>
-                    <ReactPlayer url={studyRoom.video_url} controls={true} width={1280} height={720} />
-                </S.VideoContainer>
+                <Carousel 
+                    dragging={false}
+                    renderCenterLeftControls={({ previousSlide }) => (
+                        <div onClick={previousSlide}>
+                          <Image src={PrevArrow} alt="previous arrow" />
+                        </div>
+                      )}
+                      renderCenterRightControls={({ nextSlide }) => (
+                        <div onClick={nextSlide}>
+                          <Image src={NextArrow} alt="next arrow" />
+                        </div>
+                      )} >
+                    <ResponsivePlayer url={studyRoom.video_url}/>
+                    <S.InfoContainer>
+                        <S.TitleAndNickname>
+                            <S.Title>{studyRoom.study_room_name}</S.Title>
+                            <S.Nickname>
+                                {studyRoom.nickname}
+                                <S.Introduce>님의 스터디룸</S.Introduce>
+                            </S.Nickname>
+                        </S.TitleAndNickname>
+                        <S.Description>{studyRoom.description}</S.Description>
+                    </S.InfoContainer> 
+                </Carousel>
+                <S.Inner>
+                    <S.EssayLabel>
+                        에세이 목록
+                        <S.CreateButton onClick={onWriteEssay}>생성하귀</S.CreateButton>
+                    </S.EssayLabel>
                 <S.EssayContainer>
                     { EssayList.map((essay) => (
                         <Essay 
@@ -42,21 +73,9 @@ const InStudyRoomContainer = () => {
                             title={essay.title} 
                             content={essay.content}/>
                     )) }
-                    <S.CreateButtonContainer>
-                        <S.CreateButton onClick={onWriteEssay}>생성하귀</S.CreateButton>
-                    </S.CreateButtonContainer>
                 </S.EssayContainer>
+                </S.Inner>
             </S.ContentsContainer>
-            <S.InfoContainer>
-                <S.TitleAndNickname>
-                    <S.Title>{studyRoom.study_room_name}</S.Title>
-                    <S.Nickname>
-                        {studyRoom.nickname}
-                        <S.Introduce>님의 스터디룸</S.Introduce>
-                    </S.Nickname>
-                </S.TitleAndNickname>
-                <S.Description>{studyRoom.description}</S.Description>
-            </S.InfoContainer>
         </S.StudyRoomContainer>
     )
 }

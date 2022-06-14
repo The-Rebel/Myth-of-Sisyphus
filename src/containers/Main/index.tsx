@@ -3,7 +3,7 @@ import * as S from "./styles";
 import StudyRoom from "../../components/StudyRoom";
 import {StaticImageData} from "next/image";
 import { useRouter } from "next/router"
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import {NextArrow, PrevArrow} from "../../assets/md"
 
@@ -11,7 +11,7 @@ import { useRecoilValue } from "recoil"
 import { studyRoomState } from "../../recoil"
 import ReactPlayer from "react-player/youtube"
 import Carousel from "nuka-carousel";
-import ResponsivePlayer from "../../components/ResponsivePlayer";
+import CustomPlayer from "../../components/CustomPlayer";
 
 export interface StudyRoomResType {
     study_room_id: number;
@@ -86,9 +86,9 @@ const MainContainer = () => {
                 >
                 {RecStudyRoom.map((rec, idx) => {
                     return <S.SliderItemsOuter key={rec.study_room_id}>
-                            <ResponsivePlayer 
+                            <CustomPlayer 
                                 idx={idx}
-                                url={rec.video_url}
+                                url={rec.video_url} 
                                 isPlaying={isPlayArr}
                             />
                          <S.InfoContainer>
