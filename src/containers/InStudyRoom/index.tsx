@@ -31,9 +31,21 @@ const InStudyRoomContainer = () => {
     return (
         <S.StudyRoomContainer>
             <S.ContentsContainer>
-                <S.VideoContainer>
-                    <ReactPlayer url={studyRoom.video_url} controls={true} width={1280} height={675} />
-                </S.VideoContainer>
+                <S.Inner>
+                    <S.VideoContainer>
+                        <ReactPlayer url={studyRoom.video_url} controls={true} width={1200} height={674}/>
+                    </S.VideoContainer>
+                    <S.InfoContainer>
+                        <S.TitleAndNickname>
+                            <S.Title>{studyRoom.study_room_name}</S.Title>
+                            <S.Nickname>
+                                {studyRoom.nickname}
+                                <S.Introduce>님의 스터디룸</S.Introduce>
+                            </S.Nickname>
+                        </S.TitleAndNickname>
+                        <S.Description>{studyRoom.description}</S.Description>
+                    </S.InfoContainer> 
+                </S.Inner>
                 <S.EssayContainer>
                     { EssayList.map((essay) => (
                         <Essay 
@@ -42,21 +54,9 @@ const InStudyRoomContainer = () => {
                             title={essay.title} 
                             content={essay.content}/>
                     )) }
-                    <S.CreateButtonContainer>
-                        <S.CreateButton onClick={onWriteEssay}>생성하귀</S.CreateButton>
-                    </S.CreateButtonContainer>
+                    <S.CreateButton onClick={onWriteEssay}>생성하귀</S.CreateButton>
                 </S.EssayContainer>
             </S.ContentsContainer>
-            <S.InfoContainer>
-                <S.TitleAndNickname>
-                    <S.Title>{studyRoom.study_room_name}</S.Title>
-                    <S.Nickname>
-                        {studyRoom.nickname}
-                        <S.Introduce>님의 스터디룸</S.Introduce>
-                    </S.Nickname>
-                </S.TitleAndNickname>
-                <S.Description>{studyRoom.description}</S.Description>
-            </S.InfoContainer>
         </S.StudyRoomContainer>
     )
 }

@@ -1,16 +1,20 @@
 import styled from "@emotion/styled";
 
 export const StudyRoomContainer = styled.section`
-    width: 100%;
     margin-top: 84px;
-    display: flex;
-    flex-direction: column;
 `
 
 export const ContentsContainer = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: center;
+    width: 100vw;
+    height: calc(100vh - 84px);
+`
+
+export const Inner = styled.div`
+    display: flex;
+    flex-direction: column;
 `
 
 export const VideoContainer = styled.div`
@@ -18,12 +22,14 @@ export const VideoContainer = styled.div`
 `
 
 export const EssayContainer = styled.div`
+    position: relative;
+    /* z-index: 1; */
     padding: 10px;
     row-gap: 15px;
     width: 25%;
-    height: 675px;
+    height: 100%;
     background-color: #F5F5F5;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     flex-direction: column;
@@ -34,8 +40,7 @@ export const EssayContainer = styled.div`
 `
 
 export const CreateButtonContainer = styled.div`
-    /* position: relative;
-    z-index: 1; */
+
 `
 
 export const CreateButton = styled.button`
@@ -47,8 +52,7 @@ export const CreateButton = styled.button`
 export const InfoContainer = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin-top: 23px;
 `
 
@@ -61,7 +65,7 @@ export const TitleAndNickname = styled.div`
 
 export const Description = styled.div`
     font-size: 18px;
-    width: 1720px;
+    width: 1200px;
     margin-top: 30px;
 `
 export const Title = styled.div`
