@@ -35,6 +35,10 @@ const MainContainer = () => {
         router.push("/create")  
     }
 
+    const onEnterStudyRoom = () => {
+        router.push("studyroom")
+    }
+
     useEffect(() => {
         // res -> recommendation studyrooms
         // and set data
@@ -96,6 +100,7 @@ const MainContainer = () => {
                          <S.InfoContainer>
                             <S.RecComment>추천하는 스터디룸</S.RecComment>
                             <S.Title>{rec.study_room_name}</S.Title>
+                            <button onClick={onEnterStudyRoom}>스터디룸 입장</button>
                          </S.InfoContainer>
                     </S.SliderItemsOuter>;
                 })} 
@@ -121,7 +126,7 @@ const MainContainer = () => {
                             ></StudyRoom>
                         ))}
                     </S.Rooms>
-                {/* <button onClick={onCreateRoom}>방생성하기</button>*/}
+                    <button onClick={onCreateRoom}>방생성하기</button>
                 </S.Outer>
             </S.StudyRoomContainer>
         </S.MainContainer>

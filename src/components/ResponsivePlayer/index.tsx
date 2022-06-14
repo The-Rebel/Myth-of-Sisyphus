@@ -31,8 +31,10 @@ const ResponsivePlayer = ({url, isPlaying, idx}:PropsType) => {
             ref={hostVideo}
             onProgress={playingControl}
             url={url}
-            width='100%'
-            height='100%'
+            // width='100%'
+            // height='100%'
+            width={800}
+            height={450}
             playing={isPlaying[idx]}
             loop={true}
         />

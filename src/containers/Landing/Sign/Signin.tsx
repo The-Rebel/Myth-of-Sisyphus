@@ -29,9 +29,9 @@ const SinginContainer = () => {
                 </S.IfFirstContainer>
             </S.ItemContainer>
         </S.Background>
-        <S.ImgContainer>
+        {/* <S.ImgContainer> */}
             <Image src={Background} alt="background image"/>
-        </S.ImgContainer>
+        {/* </S.ImgContainer> */}
     </S.LandingContainer>
     )
 }

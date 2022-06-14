@@ -27,9 +27,9 @@ const SignupContainer = () => {
             </S.ItemContainer>
             <S.LoginButton onClick={onMoveSignin}>로그인</S.LoginButton>
         </S.Background>
-        <S.ImgContainer>
+        {/* <S.ImgContainer> */}
             <Image src={Background} alt="background image"/>
-        </S.ImgContainer>
+        {/* </S.ImgContainer> */}
     </S.LandingContainer>
     )
 }

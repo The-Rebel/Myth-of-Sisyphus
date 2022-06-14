@@ -16,9 +16,10 @@ interface StudyRoomPropsType extends StudyRoomResType {
 const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_name, description, setIsClick, setIsPlaying }: StudyRoomPropsType) => {
     const setStudyRoom = useSetRecoilState(studyRoomState)
     const router = useRouter()
-    const [isClick1, setIsClick1] = useState<boolean>(false)
+    const [isClick1, setIsClick1] = useState<boolean>(false) // 각 스터디룸의 클릭 관리.
+    const [isHover, setIsHover] = useState<boolean>(false)
 
-    const onWatchVideo = () => {
+    const onEnterStudyRoom = () => {
         router.push("studyroom")
     }
 
@@ -27,36 +28,40 @@ const StudyRoom = ({ study_room_id, nickname, video_url, thumbnail, study_room_n
             study_room_id: study_room_id,
             nickname: nickname,
             video_url: video_url,
-            study_room_name: study_room_name,
+            study_room_name: study_room_name, 
             description: description
         }
         setStudyRoom(data)
+
         setIsClick(true)
         setIsPlaying(true)
-
         setIsClick1(true)
+        setIsHover(false)
     }
 
     const onThumbLeave = () => {
         setIsClick(false)
         setIsPlaying(false)
-
         setIsClick1(false)
+        setIsHover(false)
     } 
 
     return (
         <S.RoomContainer 
             isClick={isClick1}
+            isHover={isHover}
             onClick={onThumbClick}
-            onMouseLeave={onThumbLeave} >
-            <S.HoverRoomContainer className="items">
-                {/* <S.Title>{study_room_name}</S.Title> */}
-                {/* <S.Description>{description}</S.Description> */}
+            onMouseEnter={() => setIsHover(true)}
+            onMouseLeave={onThumbLeave}>
+            <S.OpRoomContainer className="clicked">
                 <S.PlayButton>
-                    <Image src={PlayButton} alt="play button" onClick={onWatchVideo}></Image>
+                    <Image src={PlayButton} alt="play button" onClick={onEnterStudyRoom}></Image>
                 </S.PlayButton>
-            </S.HoverRoomContainer>
-            <Image src={thumbnail} alt="thumbnail" width={400} height={230} className="thumbnail"></Image>
+            </S.OpRoomContainer>
+            <S.OpRoomContainer className="hovered">
+                <S.Label>클릭해서 미리보기 열기</S.Label>
+            </S.OpRoomContainer>
+            <Image src={thumbnail} alt="thumbnail" width={400} height={230}></Image>
         </S.RoomContainer>
     )
 }

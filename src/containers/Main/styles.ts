@@ -8,7 +8,6 @@ export const MainContainer = styled.section`
 `
 
 export const StudyRoomContainer = styled.div`
-    margin-top: 20px;
 `
 
 export const Label = styled.div`
@@ -87,7 +86,6 @@ export const Introduce = styled.div`
 export const SliderItemsOuter = styled.div`
     /* position: relative;
     padding-top: 56.25%; */
-
     display: flex;
     flex-direction: row;
     justify-content: center;
