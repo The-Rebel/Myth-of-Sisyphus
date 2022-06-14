@@ -18,23 +18,15 @@ const ResponsivePlayer = ({url, isPlaying}:PropsType) => {
     const hostVideo = useRef<ReactPlayer>(null)
 
     const playingControl = (state:playingType) => {        
-        if (!hostVideo.current) return 
-    
-
         if (state.played >= 0.1) {
-            hostVideo.current.seekTo(0, "seconds")
+            hostVideo.current?.seekTo(0, "seconds")
             console.log("dnskfnklsnfklsn");
             
         }
     }
 
-    const onClick = () => {
-        hostVideo.current?.seekTo(0, "seconds")
-    }
-
     return ( 
         // <S.Outer>
-        <>
         <ReactPlayer
             className='react-player'
             ref={hostVideo}
@@ -45,8 +37,6 @@ const ResponsivePlayer = ({url, isPlaying}:PropsType) => {
             playing={isPlaying}
             controls={true}
         />
-        <button onClick={onClick}>ddddddddddddd</button>
-        </>
         // </S.Outer>
     )
 }
