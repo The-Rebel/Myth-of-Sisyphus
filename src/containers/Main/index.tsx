@@ -30,6 +30,9 @@ const MainContainer = () => {
     const [isPlayArr, setIsPlayArr] = useState<boolean[]>(Array(RecStudyRoom.length).fill(false))
     const studyRoom = useRecoilValue(studyRoomState)
 
+    const [prevArrow, setPrevArrow] = useState<boolean>(false)
+    const [nextArrow, setNextArrow] = useState<boolean>(true)
+
     const onCreateRoom = () => {
         router.push("/create")  
     }
@@ -45,7 +48,14 @@ const MainContainer = () => {
     })
 
     const changSlide = (index:number) => {
-        setIsPlayArr(isPlayArr => isPlayArr.map((item, idx) => idx === index ? true : false))
+        setIsPlayArr(playArr => playArr.map((item, idx) => idx === index ? true : false))
+
+        setPrevArrow(true)
+        setNextArrow(true)
+        if (index === 0)
+            setPrevArrow(false)
+        if (index === RecStudyRoom.length-1)
+            setNextArrow(false)
     }
 
     return (
@@ -75,12 +85,12 @@ const MainContainer = () => {
                 dragging={false}
                 renderCenterLeftControls={({ previousSlide }) => (
                     <div onClick={previousSlide}>
-                      <Image src={PrevArrow} alt="previous arrow" />
+                        { prevArrow && <Image src={PrevArrow} alt="previous arrow" /> }
                     </div>
                   )}
                   renderCenterRightControls={({ nextSlide }) => (
                     <div onClick={nextSlide}>
-                      <Image src={NextArrow} alt="next arrow" />
+                        { nextArrow && <Image src={NextArrow} alt="next arrow" /> }
                     </div>
                   )} 
                 >

@@ -5,7 +5,7 @@ import { studyRoomState } from "../../recoil"
 
 import { EssayList } from "../../constant"
 import Essay from "../../components/Essay"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import Carousel from "nuka-carousel";
 import ResponsivePlayer from "../../components/ResponsivePlayer"
@@ -25,6 +25,9 @@ const InStudyRoomContainer = () => {
     const studyRoom = useRecoilValue(studyRoomState)
     const router = useRouter()
 
+    const [prevArrow, setPrevArrow] = useState<boolean>(false)
+    const [nextArrow, setNextArrow] = useState<boolean>(true)
+
     // useEffect(() => {
     //     // 에세이 목록 요청 받기.
     // })
@@ -33,19 +36,29 @@ const InStudyRoomContainer = () => {
         router.push("studyroom/write")
     }
 
+    const changSlide = (index:number) => {
+        setPrevArrow(true)
+        setNextArrow(true)
+        if (index === 0)
+            setPrevArrow(false)
+        if (index === 1)
+            setNextArrow(false)
+    }
+
     return (
         <S.StudyRoomContainer>
             <S.ContentsContainer>
                 <Carousel 
+                    afterSlide={changSlide}
                     dragging={false}
                     renderCenterLeftControls={({ previousSlide }) => (
                         <div onClick={previousSlide}>
-                          <Image src={PrevArrow} alt="previous arrow" />
+                          { prevArrow && <Image src={PrevArrow} alt="previous arrow" /> }
                         </div>
                       )}
                       renderCenterRightControls={({ nextSlide }) => (
                         <div onClick={nextSlide}>
-                          <Image src={NextArrow} alt="next arrow" />
+                          { nextArrow && <Image src={NextArrow} alt="next arrow" /> }
                         </div>
                       )} >
                     <ResponsivePlayer url={studyRoom.video_url}/>
