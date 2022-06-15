@@ -6,7 +6,7 @@ export const WriteEssayContainer = styled.section`
     margin-right: 20px;
 
     .ql-editor {
-    min-height: 800px;
+    min-height: 500px;
     outline: none;
   }
 
