@@ -9,8 +9,8 @@ export const EssayDetailContainer = styled.section`
 
 export const DetailContainer = styled.div`
     width: 960px;
-    height: 2000px;
-    background-color: #F5F5F5;
+    height: 100vh;
+    background-color: #FCFCFC;
     display: flex;
     flex-direction: column;
 `

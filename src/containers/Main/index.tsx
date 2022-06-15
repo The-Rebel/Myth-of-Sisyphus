@@ -114,6 +114,7 @@ const MainContainer = () => {
             
             <S.StudyRoomContainer>
                 <S.Label>스터디룸</S.Label>
+                <button onClick={onCreateRoom}>방생성하기</button>
                 <S.Outer>
                     <S.Rooms>
                         {StudyRoomList.map((room) => (
@@ -130,7 +131,6 @@ const MainContainer = () => {
                             ></StudyRoom>
                         ))}
                     </S.Rooms>
-                    <button onClick={onCreateRoom}>방생성하기</button>
                 </S.Outer>
             </S.StudyRoomContainer>
         </S.MainContainer>
