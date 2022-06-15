@@ -4,6 +4,18 @@ export const WriteEssayContainer = styled.section`
     margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
+    height: 100%;
+
+    .ql-editor {
+    min-height: 90%;
+    outline: none;
+  }
+
+    .ql-toolbar {
+    border-radius: 10px;
+    margin-bottom: 100px;
+  }
+
 `
 
 export const Title = styled.input`
