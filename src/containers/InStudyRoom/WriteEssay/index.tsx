@@ -1,26 +1,31 @@
 import * as S from "./styles"
-import { RichTextEditor } from '@mantine/rte';
-import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import ActiveButton from "../../../components/ActiveButton";
-
-const initialValue =''
+import "react-quill/dist/quill.snow.css";
+const QuillWrapper = dynamic(import("react-quill"), {
+    ssr: false,
+    loading: () => <p>Loading ...</p>,
+  });
 
 const WriteEssayContainer = () => {
-    const [text, setText] = useState<string>(initialValue)
+    const modules = {
+          toolbar: [
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            ["bold", "italic", "underline", "blockquote"],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+            ["clean"], 
+          ],
+        }
 
     return (
         <S.WriteEssayContainer>
             <S.Title placeholder="제목을 입력하세요"></S.Title>
-            {/* <RichTextEditor value={text} onChange={setText}
-            controls={[
-                ['bold', 'italic', 'underline', 'strike'],
-                ['h1', 'h2', 'h3', 'h4'],
-                ['unorderedList', 'orderedList'],
-                ['blockquote', 'link'],
-                ['alignLeft', 'alignCenter', 'alignRight']
-            ]}
-            className="textEditor"/>  */}
-            
+            <QuillWrapper
+                modules={modules} 
+                // modules={{ toolbar: false }} 
+                theme="snow"/>
             <S.ButtonContainer>
                 <ActiveButton>임시저장</ActiveButton>
                 <ActiveButton>에세이 등록</ActiveButton>

@@ -4,13 +4,6 @@ export const WriteEssayContainer = styled.section`
     margin-top: 60px;
     margin-left: 20px;
     margin-right: 20px;
-
-    & .textEditor {
-        border: none;
-        border-bottom: 1px solid black;
-        height: 700px;
-        overflow-y: scroll;
-    }
 `
 
 export const Title = styled.input`
